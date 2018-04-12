@@ -8,6 +8,8 @@
 import ptpulse
 from ptpulse import ledmatrix
 
+import random
+
 import re
 
 import time
@@ -87,10 +89,23 @@ if __name__ == '__main__':
 
 	val = 0
 
+	colorR = 255
+	colorG = 0
+	colorB = 150
+
 	while True:
-		show_letters_digits(val, 255, 0, 150)
-		time.sleep(0.5)
-		val = val + 1
+		if val < 100:
+			show_letters_digits(val, colorR, colorG, colorB)
+			time.sleep(0.1)
+			val = val + 1
+		if val > 100:
+			val = 0 
+			colorR = random.randrange(255)
+			colorG = random.randrange(255)
+			colorB = random.randrange(255)
+			show_letters_digits(val, colorR, colorG, colorB)
+			time.sleep(0.1)
+			val = val + 1
 
 	ledmatrix.clear()
 	ledmatrix.show()
