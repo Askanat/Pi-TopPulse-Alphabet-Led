@@ -78,7 +78,7 @@ def show_letters_digits(val, r, g, b):
 		show_digit(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
 	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP, r, g, b)
 
-def show_L():
+def show_L(r, g, b):
 	ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
@@ -108,7 +108,7 @@ if __name__ == '__main__':
 	colorB = random.randrange(255)
 
 	while True:
-		show_L()
+		show_L(colorR, colorG, colorB)
 		"""if val <= 99:
 			show_letters_digits(val, colorR, colorG, colorB)
 			time.sleep(0.1)
