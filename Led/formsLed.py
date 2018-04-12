@@ -58,7 +58,7 @@ def show_letters(val, r, g, b):
 
 
 def show_A():
-	for i in range 135:
+	for i in range (135):
 		for j in range (1, 134):
 			if i%2 == 2 and j%2 == 2 :
 				ledmatrix.set_pixel(i, j, 0, 0, 255, 255, 255)
