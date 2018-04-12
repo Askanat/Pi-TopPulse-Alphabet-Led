@@ -89,9 +89,9 @@ if __name__ == '__main__':
 
 	val = 0
 
-	colorR = 255
-	colorG = 0
-	colorB = 150
+	colorR = random.randrange(255)
+	colorG = random.randrange(255)
+	colorB = random.randrange(255)
 
 	while True:
 		if val <= 99:
@@ -99,6 +99,8 @@ if __name__ == '__main__':
 			time.sleep(0.1)
 			val = val + 1
 		if val > 99:
+			ledmatrix.clear()
+			ledmatrix.show()
 			val = 0 
 			colorR = random.randrange(255)
 			colorG = random.randrange(255)
