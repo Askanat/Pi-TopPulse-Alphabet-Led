@@ -68,13 +68,13 @@ def show_letters_digits(val, r, g, b):
 		abs_val = ord(val)
 		print (abs_val)
 	else :"""
-		value 	= int(val)
-		abs_val = abs(value)
-		tens 	= abs_val // 10
-		units 	= abs_val % 10
-		if (abs_val > 9):
-			show_digit(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
-		show_digit(units, OFFSET_LEFT+2, OFFSET_TOP, r, g, b)
+	value 	= int(val)
+	abs_val = abs(value)
+	tens 	= abs_val // 10
+	units 	= abs_val % 10
+	if (abs_val > 9):
+		show_digit(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
+	show_digit(units, OFFSET_LEFT+2, OFFSET_TOP, r, g, b)
 	
 
 
