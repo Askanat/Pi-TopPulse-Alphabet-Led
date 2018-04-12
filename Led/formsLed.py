@@ -40,7 +40,7 @@ def show_A(val, xd, yd, r, g ,b):
 
 	"""
 
-	offset = val * 15
+	offset = int(val) * 15
 	for p in range(offset, offset + 15):
 		xt = p % 3
 		yt = (p-offset) // 3
