@@ -14,8 +14,8 @@ import re
 
 import time
 
-OFFSET_LEFT = 0
-OFFSET_TOP = 2
+OFFSET_LEFT = 1
+OFFSET_TOP = 1
 
 NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
@@ -91,7 +91,7 @@ def show_L(r, g, b):
 	ledmatrix.set_pixel( 6 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 6 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 6 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	
+
 	#Horizontal
 	ledmatrix.set_pixel( 6 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 5 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
