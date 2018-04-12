@@ -30,6 +30,11 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 
 REGEXP = r"(^[a-zA-Z]*)"
 
+alphabet = {}
+
+
+
+
 
 
 def show_digit(val, xd, yd, r, g ,b):
@@ -79,15 +84,15 @@ def show_letters_digits(val, r, g, b):
 	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP, r, g, b)
 
 def show_L(r, g, b):
-	ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 2 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 3 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 4 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 12 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 12 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 12 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 12 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 12 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 12 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 11 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 10 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 9 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.show()
 	
 
