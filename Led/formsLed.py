@@ -130,7 +130,7 @@ if __name__ == '__main__':
 	val = 0
 
 	while True:
-		show_L(colorR, colorG, colorB)
+		show_L()
 		"""if val <= 99:
 			show_letters_digits(val)
 			time.sleep(0.1)
