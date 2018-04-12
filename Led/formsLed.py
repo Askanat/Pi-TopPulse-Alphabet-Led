@@ -85,9 +85,12 @@ if __name__ == '__main__':
 	ledmatrix.rotation(0)
 	ledmatrix.clear()
 
-	while True:
+	val = 0
 
-		show_letters_digits('1', 255, 0, 150)
+	while True:
+		show_letters_digits(val, 255, 0, 150)
+		spleep(0,5)
+		val++
 
 	ledmatrix.clear()
 	ledmatrix.show()
