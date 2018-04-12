@@ -57,7 +57,7 @@ ledmatrix.rotation(0)
 ledmatrix.clear()
 
 while True:
-	show_A(A, 255, 255, 255)
+	show_A(A, OFFSET_LEFT, OFFSET_TOP, 255, 255, 255)
 
 ledmatrix.clear()
 ledmatrix.show()
