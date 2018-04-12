@@ -7,7 +7,8 @@
 
 import ptpulse
 from ptpulse import ledmatrix
-from ptpulse import time
+
+import time
 
 OFFSET_LEFT = 0
 OFFSET_TOP = 2
