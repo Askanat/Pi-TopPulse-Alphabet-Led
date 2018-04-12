@@ -67,7 +67,7 @@ def show_letters_digits(val, r, g, b):
 	if re.match(REGEXP, val):
 		abs_val = ord(val)
 		print (abs_val)
-	else
+	else :
 		abs_val = abs(val)
 		tens 	= abs_val // 10
 		units 	= abs_val % 10
