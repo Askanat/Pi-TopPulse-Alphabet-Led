@@ -94,11 +94,11 @@ if __name__ == '__main__':
 	colorB = 150
 
 	while True:
-		if val < 100:
+		if val <= 99:
 			show_letters_digits(val, colorR, colorG, colorB)
 			time.sleep(0.1)
 			val = val + 1
-		if val > 100:
+		if val > 99:
 			val = 0 
 			colorR = random.randrange(255)
 			colorG = random.randrange(255)
