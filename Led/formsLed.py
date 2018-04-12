@@ -24,7 +24,7 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1,  # 4
         1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1,  # 5
         1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 6
-        1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,  # 7
+        1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,  # 6
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
@@ -50,7 +50,7 @@ def show_digit(val, xd, yd, r, g ,b):
 	for p in range(offset, offset + 15):
 		xt = p % 3
 		yt = (p-offset) // 3
-		ledmatrix.set_pixel( xt+xd , 7-yt-yd , r*NUMS[p] , g*NUMS[p] , 
+		ledmatrix.set_pixel( xt+xd , 6-yt-yd , r*NUMS[p] , g*NUMS[p] , 
 			b*NUMS[p])
 	ledmatrix.show()
 
@@ -85,11 +85,9 @@ def show_L(r, g, b):
 	ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 1 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 2 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 3 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 4 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 5 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 2 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 3 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 4 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.show()
 	
 
