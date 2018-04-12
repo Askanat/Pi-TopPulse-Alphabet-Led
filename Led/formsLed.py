@@ -25,7 +25,7 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
 
-def show_A(val, xd, yd, r, g ,b):
+def show_letter(val, xd, yd, r, g ,b):
 	"""show_A
 
 		Use pi-topPulse led board to show one selected letter
@@ -40,13 +40,21 @@ def show_A(val, xd, yd, r, g ,b):
 
 	"""
 
-	offset = ord(val)
+	offset = val
 	for p in range(offset, offset + 15):
 		xt = p % 3
 		yt = (p-offset) // 3
 		ledmatrix.set_pixel( xt+xd , 5-yt-yd , r*NUMS[p] , g*NUMS[p] , 
 			b*NUMS[p])
 	ledmatrix.show()
+
+def show_letters(val, r, g, b):
+	abs_val = ord(val)
+	tens 	= abs_val // 10
+	units 	= abs_val % 10
+	if (abs_val > 9):
+		show_letter(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
+	show_letter(units, OFFSET_LEFT+2, OFFSET_TOP, r, g, b)
 
 
 ###############################################################################
@@ -57,7 +65,7 @@ ledmatrix.rotation(0)
 ledmatrix.clear()
 
 while True:
-	show_A('A', OFFSET_LEFT, OFFSET_TOP, 255, 255, 255)
+	show_letter('A', OFFSET_LEFT, OFFSET_TOP, 255, 255, 255)
 
 ledmatrix.clear()
 ledmatrix.show()
