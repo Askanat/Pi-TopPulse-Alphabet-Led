@@ -84,15 +84,17 @@ def show_letters_digits(val, r, g, b):
 	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP, r, g, b)
 
 def show_L(r, g, b):
+	#Vertical
 	ledmatrix.set_pixel( 6 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 6 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 6 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 6 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.set_pixel( 6 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 6 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 5 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 4 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-	ledmatrix.set_pixel( 3, 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	#Horizontal
+	ledmatrix.set_pixel( 6 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 5 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
 	ledmatrix.show()
 	
 
