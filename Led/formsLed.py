@@ -39,6 +39,24 @@ def show_A(val, xd, yd, r, g ,b):
 
 	"""
 
-	offset = ["A"]
-	for p in range(offset):
+	offset = val * 15
+	for p in range(offset, offset + 15):
 		xt = p % 3
+		yt = (p-offset) // 3
+		ledmatrix.set_pixel( xt+xd , 5-yt-yd , r*NUMS[p] , g*NUMS[p] , 
+			b*NUMS[p])
+	ledmatrix.show()
+
+
+###############################################################################
+# MAIN																		  #
+###############################################################################
+
+ledmatrix.rotation(0)
+ledmatrix.clear()
+
+while True:
+	show_A(A, 255, 255, 255)
+
+ledmatrix.clear()
+ledmatrix.show()
