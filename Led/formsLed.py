@@ -12,7 +12,7 @@ import re
 
 import time
 
-OFFSET_LEFT = 2
+OFFSET_LEFT = 0
 OFFSET_TOP = 2
 
 NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
