@@ -87,8 +87,7 @@ def show_digit(val, xd, yd):
 	for p in range(offset, offset + 15):
 		xt = p % 3
 		yt = (p-offset) // 3
-		ledmatrix.set_pixel( xt+xd , 6-yt-yd , R*NUMS[p] , G*NUMS[p] , 
-			B*NUMS[p])
+		ledmatrix.set_pixel( xt+xd, 6-yt-yd, R*NUMS[p], G*NUMS[p], B*NUMS[p])
 	ledmatrix.show()
 
 def show_letters_digits(val):
@@ -109,8 +108,8 @@ def show_letters_digits(val):
 	tens 	= abs_val // 10
 	units 	= abs_val % 10
 	if (abs_val > 9):
-		show_digit(tens, OFFSET_LEFT, OFFSET_TOP, R, G, B)
-	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP, R, G, B)
+		show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
+	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
 
 def show_L():
 	
