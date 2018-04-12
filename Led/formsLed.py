@@ -89,7 +89,7 @@ if __name__ == '__main__':
 
 	while True:
 		show_letters_digits(val, 255, 0, 150)
-		time.sleep(0,5)
+		time.sleep(0.5)
 		val = val + 1
 
 	ledmatrix.clear()
