@@ -68,7 +68,8 @@ def show_letters_digits(val, r, g, b):
 		abs_val = ord(val)
 		print (abs_val)
 	else :
-		abs_val = abs(val)
+		value 	= int(val)
+		abs_val = abs(value)
 		tens 	= abs_val // 10
 		units 	= abs_val % 10
 		if (abs_val > 9):
@@ -86,7 +87,7 @@ if __name__ == '__main__':
 
 	while True:
 
-		show_letters_digits(1, 255, 0, 150)
+		show_letters_digits('1', 255, 0, 150)
 
 	ledmatrix.clear()
 	ledmatrix.show()
