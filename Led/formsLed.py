@@ -30,9 +30,9 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 
 REGEXP = r"(^[a-zA-Z]*)"
 
-R = random.randrange(255)
-G = random.randrange(255)
-B = random.randrange(255)
+R = int(random.randrange(255))
+G = int(random.randrange(255))
+B = int(random.randrange(255))
 
 A = [ ]
 B = [ ]
@@ -46,17 +46,16 @@ I = [ ]
 J = [ ]
 K = [ ]
 L = [#Vertical
-	ledmatrix.set_pixel( 6 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 6 , 2 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 6 , 3 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 6 , 4 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 6 , 5 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 6 , 6 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 2 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 3 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 4 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 5 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 6 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
 	#Horizontal
-	ledmatrix.set_pixel( 6 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 5 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 4 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 3 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])]
+	ledmatrix.set_pixel( 2 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 3 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 4 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])]
 M = [ ]
 N = [ ]
 O = [ ]
@@ -103,6 +102,7 @@ def show_letters_digits(val):
 		abs_val = ord(val)
 		print (abs_val)
 	else :"""
+
 	value 	= int(val)
 	abs_val = abs(value)
 	tens 	= abs_val // 10
@@ -112,6 +112,8 @@ def show_letters_digits(val):
 	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
 
 def show_L():
+	"""
+	"""
 	
 	for i in range (L):
 		L[i]
