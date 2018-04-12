@@ -12,7 +12,7 @@ import re
 
 import time
 
-OFFSET_LEFT = 0
+OFFSET_LEFT = 2
 OFFSET_TOP = 2
 
 NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
@@ -74,7 +74,7 @@ def show_letters_digits(val, r, g, b):
 	units 	= abs_val % 10
 	if (abs_val > 9):
 		show_digit(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
-	show_digit(units, OFFSET_LEFT+2, OFFSET_TOP, r, g, b)
+	show_digit(units, OFFSET_LEFT+3, OFFSET_TOP, r, g, b)
 	
 
 
