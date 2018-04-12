@@ -64,7 +64,7 @@ def show_letters_digits(val, r, g, b):
 			b   : blue value
 	"""
 
-	if re.match(REGEXP, val is None:
+	if re.match(REGEXP, val) is None:
 		abs_val = ord(val)
 		print (abs_val)
 	else :
