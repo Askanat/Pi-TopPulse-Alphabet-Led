@@ -8,6 +8,8 @@
 import ptpulse
 from ptpulse import ledmatrix
 
+import re
+
 import time
 
 OFFSET_LEFT = 0
@@ -24,58 +26,67 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
+REGEXP = r"(^[a-zA-Z])"
 
-def show_letter(val, xd, yd, r, g ,b):
-	"""show_A
 
-		Use pi-topPulse led board to show one selected letter
+
+def show_digit(val, xd, yd, r, g ,b):
+	"""show_digit
+
+		Calculate position of leds on and off
 
 		Attributes:
-			val : if number or letter value
+			val : number display
 			xd  : width display
 			yd  : height display
 			r 	: red value
 			g	: green value
 			b   : blue value
-
 	"""
 
-	offset = val * 7
+	offset = val * 15
 	for p in range(offset, offset + 15):
 		xt = p % 3
 		yt = (p-offset) // 3
-		ledmatrix.set_pixel( xt+xd , 5-yt-yd , r*NUMS[p] , g*NUMS[p] , 
+		ledmatrix.set_pixel( xt+xd , 7-yt-yd , r*NUMS[p] , g*NUMS[p] , 
 			b*NUMS[p])
 	ledmatrix.show()
 
-def show_letters(val, r, g, b):
-	abs_val = ord(val)
-	tens 	= abs_val // 10
-	units 	= abs_val % 10
-	if (abs_val > 9):
-		show_letter(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
-	show_letter(units, OFFSET_LEFT+2, OFFSET_TOP, r, g, b)
+def show_letters_digits(val, r, g, b):
+	"""show_letters_digits
 
+		Calculate number of 
 
-def show_A():
-	for i in range NUMS:
-		for j in range NUMS-1:
-			if i%2 == 2 and j%2 == 2 :
-				ledmatrix.set_pixel(i, j, 0, 0, 255*NUMS[i], 255*NUMS[i], 
-					255*NUMS[i])
-	ledmatrix.show()			
+		Attributes:
+			val : if number or letter value
+			r 	: red value
+			g	: green value
+			b   : blue value
+	"""
+
+	if re.match(REGEXP, val):
+		abs_val = ord(val)
+		print (abs_val)
+	else
+		abs_val = abs(val)
+		tens 	= abs_val // 10
+		units 	= abs_val % 10
+		if (abs_val > 9):
+			show_digit(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
+		show_digit(units, OFFSET_LEFT+2, OFFSET_TOP, r, g, b)
+	
 
 
 ###############################################################################
 # MAIN																		  #
 ###############################################################################
+if __name__ == '__main__':
+	ledmatrix.rotation(0)
+	ledmatrix.clear()
 
-ledmatrix.rotation(0)
-ledmatrix.clear()
+	while True:
 
-while True:
+		show_letters_digits(1, 255, 0, 150)
 
-	show_A()
-
-ledmatrix.clear()
-ledmatrix.show()
+	ledmatrix.clear()
+	ledmatrix.show()
