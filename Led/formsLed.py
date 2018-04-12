@@ -105,7 +105,7 @@ def show_L(r, g, b):
 # MAIN																		  #
 ###############################################################################
 if __name__ == '__main__':
-	ledmatrix.rotation(0)
+	ledmatrix.rotation(270)
 	ledmatrix.clear()
 
 	val = 0
