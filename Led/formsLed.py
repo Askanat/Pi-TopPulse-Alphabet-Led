@@ -77,6 +77,20 @@ def show_letters_digits(val, r, g, b):
 	if (abs_val > 9):
 		show_digit(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
 	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP, r, g, b)
+
+def show_L():
+	ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 1 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 2 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 3 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 4 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.set_pixel( 5 , 7 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+	ledmatrix.show()
 	
 
 
@@ -94,7 +108,8 @@ if __name__ == '__main__':
 	colorB = random.randrange(255)
 
 	while True:
-		if val <= 99:
+		show_L()
+		"""if val <= 99:
 			show_letters_digits(val, colorR, colorG, colorB)
 			time.sleep(0.1)
 			val = val + 1
@@ -107,7 +122,7 @@ if __name__ == '__main__':
 			colorB = random.randrange(255)
 			show_letters_digits(val, colorR, colorG, colorB)
 			time.sleep(0.1)
-			val = val + 1
+			val = val + 1"""
 
 	ledmatrix.clear()
 	ledmatrix.show()
