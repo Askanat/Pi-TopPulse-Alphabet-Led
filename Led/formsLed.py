@@ -65,7 +65,7 @@ ledmatrix.rotation(0)
 ledmatrix.clear()
 
 while True:
-	show_letter('A', OFFSET_LEFT, OFFSET_TOP, 255, 255, 255)
+	show_letters('A', 255, 255, 255)
 
 ledmatrix.clear()
 ledmatrix.show()
