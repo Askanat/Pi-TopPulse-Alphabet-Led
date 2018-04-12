@@ -64,10 +64,10 @@ def show_letters_digits(val, r, g, b):
 			b   : blue value
 	"""
 
-	if re.match(REGEXP, val) is not None:
+	"""if re.match(REGEXP, val) is not None:
 		abs_val = ord(val)
 		print (abs_val)
-	else :
+	else :"""
 		value 	= int(val)
 		abs_val = abs(value)
 		tens 	= abs_val // 10
