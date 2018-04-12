@@ -40,7 +40,7 @@ def show_letter(val, xd, yd, r, g ,b):
 
 	"""
 
-	offset = val
+	offset = val * 7
 	for p in range(offset, offset + 15):
 		xt = p % 3
 		yt = (p-offset) // 3
@@ -57,6 +57,14 @@ def show_letters(val, r, g, b):
 	show_letter(units, OFFSET_LEFT+2, OFFSET_TOP, r, g, b)
 
 
+def show_A():
+	for i in range 135:
+		for j in range (1, 134):
+			if i%2 == 2 and j%2 == 2 :
+				ledmatrix.set_pixel(i, j, 0, 0, 255, 255, 255)
+	ledmatrix.show()			
+
+
 ###############################################################################
 # MAIN																		  #
 ###############################################################################
@@ -65,7 +73,8 @@ ledmatrix.rotation(0)
 ledmatrix.clear()
 
 while True:
-	show_letters('A', 255, 255, 255)
+
+	show_A()
 
 ledmatrix.clear()
 ledmatrix.show()
