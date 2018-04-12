@@ -14,8 +14,8 @@ import re
 
 import time
 
-OFFSET_LEFT = 1
-OFFSET_TOP = 1
+OFFSET_LEFT = 0
+OFFSET_TOP = 0
 
 NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
@@ -30,12 +30,43 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 
 REGEXP = r"(^[a-zA-Z]*)"
 
-alphabet = {}
-
-
-
-
-
+A = [ ]
+B = [ ]
+C = [ ]
+D = [ ]
+E = [ ]
+F = [ ]
+G = [ ]
+H = [ ]
+I = [ ]
+J = [ ]
+K = [ ]
+L = [#Vertical
+	ledmatrix.set_pixel( 6 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 6 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 6 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 6 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 6 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 6 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	#Horizontal
+	ledmatrix.set_pixel( 6 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 5 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])]
+M = [ ]
+N = [ ]
+O = [ ]
+P = [ ]
+Q = [ ]
+R = [ ]
+S = [ ]
+T = [ ]
+U = [ ]
+V = [ ]
+W = [ ]
+X = [ ]
+Y = [ ]
+Z = [ ]
 
 def show_digit(val, xd, yd, r, g ,b):
 	"""show_digit
@@ -105,7 +136,7 @@ def show_L(r, g, b):
 # MAIN																		  #
 ###############################################################################
 if __name__ == '__main__':
-	ledmatrix.rotation(270)
+	ledmatrix.rotation(0)
 	ledmatrix.clear()
 
 	val = 0
