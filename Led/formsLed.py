@@ -26,7 +26,7 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
-REGEXP = r"(^[a-zA-Z])"
+REGEXP = r"(^[a-zA-Z]*)"
 
 
 
@@ -58,13 +58,13 @@ def show_letters_digits(val, r, g, b):
 		Calculate number of 
 
 		Attributes:
-			val : if number or letter value
+			val : number or letter
 			r 	: red value
 			g	: green value
 			b   : blue value
 	"""
 
-	if re.match(REGEXP, val) is None:
+	if re.match(REGEXP, val) is not None:
 		abs_val = ord(val)
 		print (abs_val)
 	else :
