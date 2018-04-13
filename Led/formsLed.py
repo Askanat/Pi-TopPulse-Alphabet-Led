@@ -89,17 +89,18 @@ class Switcher(object):
         return "March"
 
     def show_L(self):
+    	#Vertical
         ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		#Horizontal
-		ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-		ledmatrix.show()
+        ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        #Horizontal
+        ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.show()
 	
 
 
