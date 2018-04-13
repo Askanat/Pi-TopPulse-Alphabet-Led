@@ -267,7 +267,7 @@ if __name__ == '__main__':
         time.sleep(1)
 
         if val <= 99:
-            show_letters_digits(val)
+            led.show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1
 
@@ -292,7 +292,7 @@ if __name__ == '__main__':
             ledmatrix.clear()
             ledmatrix.show()
             val = 0 
-            show_letters_digits(val)
+            led.show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1
 
