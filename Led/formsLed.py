@@ -264,7 +264,7 @@ if __name__ == '__main__':
 
     while True:
 
-        led.show_letters_digits('B')
+        led.show_letters_digits('C')
         time.sleep(1)
 
         """if val <= 99:
