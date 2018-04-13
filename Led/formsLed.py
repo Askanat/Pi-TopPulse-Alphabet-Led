@@ -116,8 +116,8 @@ class Switcher(object):
         ledmatrix.set_pixel( 2 , 4 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
         #Horizontal
-        ledmatrix.set_pixel( 5 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
-            self.b*NUMS[1])
+        """ledmatrix.set_pixel( 5 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])"""
         #Show
         ledmatrix.show()
 
