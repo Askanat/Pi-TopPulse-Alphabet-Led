@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
     while True:
 
-        show_letters_digits('L')
+        Show.show_letters_digits('L')
 
         """if val <= 99:
             show_letters_digits(val)
