@@ -93,7 +93,7 @@ class Switcher(object):
 
         """
 
-        method_name = self.method_name + str(argument)
+        method_name = self.method_name + argument
         # Get the method from 'self'. Default to a lambda.
         method = getattr(self, self.method_name, lambda: "Invalid letter")
         # Call the method as we return it
