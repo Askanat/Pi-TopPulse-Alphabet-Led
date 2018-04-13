@@ -28,12 +28,10 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
-REGEXP = r"(^[a-zA-Z]*)"
-
 class Show(object):
 
     def __init__(self):
-
+        self.regex = r"(^[a-zA-Z]*)"
 
     def show_digit(val, xd, yd):
         """show_digit
@@ -61,7 +59,7 @@ class Show(object):
             Attributes:
                 val : number or letter
         """
-        if re.match(REGEXP, val) is not None:
+        if re.match(regex, val) is not None:
             switch = Switcher
             switch.call_letters(val)
             
