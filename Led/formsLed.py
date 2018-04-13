@@ -139,7 +139,6 @@ class Switcher(object):
             self.b*NUMS[1])
         #Show
         ledmatrix.show()
-
  
     def show_B(self):
         """show_B
@@ -192,6 +191,33 @@ class Switcher(object):
             Position and parameters for letter C
             
         """
+
+    #Vertical Droit
+        ledmatrix.set_pixel( 1 , 4 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+
+        #Arc de Cercle
+        ledmatrix.set_pixel( 3 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 2 , 5 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        
+        ledmatrix.set_pixel( 2 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 3 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+
+        #Horizontal
+        ledmatrix.set_pixel( 4 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 4 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        #Show
+        ledmatrix.show()
 
     def show_L(self):
         """show_L
