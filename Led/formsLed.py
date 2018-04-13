@@ -31,10 +31,10 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 class Show(object):
 
     def __init__(self):
-        self.regex = self.r"(^[a-zA-Z]*)"
-        self.r = random.randrange(255)
-        self.g = random.randrange(255)
-        self.b = random.randrange(255)
+        self.regex  = r"(^[a-zA-Z]*)"
+        self.r      = random.randrange(255)
+        self.g      = random.randrange(255)
+        self.b      = random.randrange(255)
 
     def show_digit(val, xd, yd):
         """show_digit
@@ -78,10 +78,10 @@ class Show(object):
 class Switcher(object):
 
     def __init__(self):
-        self.method_name = 'show'
-        self.r = random.randrange(255)
-        self.g = random.randrange(255)
-        self.b = random.randrange(255)
+        self.method_name    = 'show'
+        self.r              = random.randrange(255)
+        self.g              = random.randrange(255)
+        self.b              = random.randrange(255)
 
     def call_letters(self, argument):
         """call_letters
