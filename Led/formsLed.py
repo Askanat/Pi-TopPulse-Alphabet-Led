@@ -125,15 +125,18 @@ if __name__ == '__main__':
     ledmatrix.rotation(0)
     ledmatrix.clear()
 
+    led = Show()
     val = 0
 
     r = random.randrange(255)
     g = random.randrange(255)
     b = random.randrange(255)
 
+
+
     while True:
 
-        Show.show_letters_digits('L')
+        led.show_letters_digits('L')
 
         """if val <= 99:
             show_letters_digits(val)
