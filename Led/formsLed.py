@@ -294,7 +294,7 @@ if __name__ == '__main__':
             val = 0 
             show_letters_digits(val)
             time.sleep(0.1)
-            val = val + 1"""
+            val = val + 1
 
     ledmatrix.clear()
     ledmatrix.show()
