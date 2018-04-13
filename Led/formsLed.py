@@ -30,47 +30,6 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 
 REGEXP = r"(^[a-zA-Z]*)"
 
-r = 255 #int(random.randrange(255))
-g = 255 #int(random.randrange(255))
-b = 255#int(random.randrange(255))
-
-A = [ ]
-b = [ ]
-C = [ ]
-D = [ ]
-E = [ ]
-F = [ ]
-G = [ ]
-H = [ ]
-I = [ ]
-J = [ ]
-K = [ ]
-L = [#Vertical
-	ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	#Horizontal
-	ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-	ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])]
-M = [ ]
-N = [ ]
-O = [ ]
-P = [ ]
-Q = [ ]
-R = [ ]
-S = [ ]
-T = [ ]
-U = [ ]
-V = [ ]
-W = [ ]
-X = [ ]
-Y = [ ]
-Z = [ ]
-
 def show_digit(val, xd, yd):
 	"""show_digit
 
@@ -129,6 +88,47 @@ if __name__ == '__main__':
 	ledmatrix.clear()
 
 	val = 0
+
+	r = 255 #int(random.randrange(255))
+	g = 255 #int(random.randrange(255))
+	b = 255#int(random.randrange(255))
+
+	A = [ ]
+	B = [ ]
+	C = [ ]
+	D = [ ]
+	E = [ ]
+	F = [ ]
+	G = [ ]
+	H = [ ]
+	I = [ ]
+	J = [ ]
+	K = [ ]
+	L = [#Vertical
+		ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		#Horizontal
+		ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+		ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])]
+	M = [ ]
+	N = [ ]
+	O = [ ]
+	P = [ ]
+	Q = [ ]
+	R = [ ]
+	S = [ ]
+	T = [ ]
+	U = [ ]
+	V = [ ]
+	W = [ ]
+	X = [ ]
+	Y = [ ]
+	Z = [ ]
 
 	while True:
 		show_L()
