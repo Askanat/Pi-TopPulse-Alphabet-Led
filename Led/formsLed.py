@@ -147,6 +147,46 @@ class Switcher(object):
             Position and parameters for letter B
             
         """
+
+        #Vertical Droit
+        ledmatrix.set_pixel( 1 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 5 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 4 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+
+        #Vertical Gauche
+        ledmatrix.set_pixel( 2 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 2 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 3 , 5 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 4 , 4 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 4 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 3 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 5 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+
+        #Horizontal
+        ledmatrix.set_pixel( 2 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 3 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 4 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        #Show
+        ledmatrix.show()
  
     def show_C(self):
         """show_C
@@ -200,7 +240,7 @@ if __name__ == '__main__':
 
     while True:
 
-        led.show_letters_digits('A')
+        led.show_letters_digits('B')
         time.sleep(1)
 
         """if val <= 99:
