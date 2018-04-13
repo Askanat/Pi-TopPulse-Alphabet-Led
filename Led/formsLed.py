@@ -57,7 +57,7 @@ H = [ ]
 I = [ ]
 J = [ ]
 K = [ ]
-L = [ledmatrix.set_pixel( 1 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])]
+L = [ ]
 M = [ ]
 N = [ ]
 O = [ ]
@@ -117,8 +117,7 @@ def show_L():
 	"""
 	"""
 	
-	for i in range (L):
-		L[i]
+	ledmatrix.set_pixel( 1 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])
 	ledmatrix.show()
 	
 
