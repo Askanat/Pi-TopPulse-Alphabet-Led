@@ -31,7 +31,10 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 class Show(object):
 
     def __init__(self):
-        self.regex = r"(^[a-zA-Z]*)"
+        self.regex = self.r"(^[a-zA-Z]*)"
+        self.r = random.randrange(255)
+        self.g = random.randrange(255)
+        self.b = random.randrange(255)
 
     def show_digit(val, xd, yd):
         """show_digit
@@ -48,7 +51,7 @@ class Show(object):
         for p in range(offset, offset + 15):
             xt = p % 3
             yt = (p-offset) // 3
-            ledmatrix.set_pixel( xt+xd, 6-yt-yd, r*NUMS[p], g*NUMS[p], b*NUMS[p])
+            ledmatrix.set_pixel( xt+xd, 6-yt-yd, self.r*NUMS[p], self.g*NUMS[p], self.b*NUMS[p])
         ledmatrix.show()
 
     def show_letters_digits(self, val):
@@ -76,6 +79,9 @@ class Switcher(object):
 
     def __init__(self):
         self.method_name = 'show'
+        self.r = random.randrange(255)
+        self.g = random.randrange(255)
+        self.b = random.randrange(255)
 
     def call_letters(self, argument):
         """call_letters
@@ -104,16 +110,25 @@ class Switcher(object):
 
     def show_L(self):
         #Vertical
-        ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-        ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-        ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-        ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-        ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-        ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 4 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 5 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
         #Horizontal
-        ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-        ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
-        ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+        ledmatrix.set_pixel( 2 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 3 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 4 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
         ledmatrix.show()
     
 
@@ -128,9 +143,9 @@ if __name__ == '__main__':
     led = Show()
     val = 0
 
-    r = random.randrange(255)
-    g = random.randrange(255)
-    b = random.randrange(255)
+    self.r = random.randrange(255)
+    self.g = random.randrange(255)
+    self.b = random.randrange(255)
 
 
 
@@ -146,9 +161,9 @@ if __name__ == '__main__':
             ledmatrix.clear()
             ledmatrix.show()
             val = 0 
-            r = random.randrange(255)
-            g = random.randrange(255)
-            b = random.randrange(255)
+            self.r = random.randrange(255)
+            self.g = random.randrange(255)
+            self.b = random.randrange(255)
             show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1"""
