@@ -61,7 +61,8 @@ class Show(object):
             Attributes:
                 val : number or letter
         """
-        if re.search(val, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+        valStr = str(val)
+        if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             switch = Switcher()
             switch.call_letters(val)
         else :
@@ -191,7 +192,7 @@ class Switcher(object):
             
         """
 
-    #Vertical Droit
+        #Vertical Droit
         ledmatrix.set_pixel( 1 , 4 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
         ledmatrix.set_pixel( 1 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
