@@ -271,7 +271,7 @@ if __name__ == '__main__':
             time.sleep(0.1)
             val = val + 1
 
-        if val > 99 and < 104:
+        if val > 99 and val < 104:
             if val == 100:
                 led.show_letters_digits('A')
                 time.sleep(1)
