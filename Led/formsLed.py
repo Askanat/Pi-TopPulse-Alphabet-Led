@@ -57,26 +57,49 @@ def show_letters_digits(val):
 			val : number or letter
 	"""
 
-	"""if re.match(REGEXP, val) is not None:
-		abs_val = ord(val)
-		print (abs_val)
-	else :"""
+	if re.match(REGEXP, val) is not None:
+		switch = Switcher
+		a.call_letters(val)
+		
+	else :
+		value 	= int(val)
+		abs_val = abs(value)
+		tens 	= abs_val // 10
+		units 	= abs_val % 10
+		if (abs_val > 9):
+			show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
+		show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
 
-	value 	= int(val)
-	abs_val = abs(value)
-	tens 	= abs_val // 10
-	units 	= abs_val % 10
-	if (abs_val > 9):
-		show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
-	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
+class Switcher(object):
+    def call_letters(self, argument):
+        """Dispatch method"""
+        method_name = 'show_' + str(argument)
+        # Get the method from 'self'. Default to a lambda.
+        method = getattr(self, method_name, lambda: "Invalid letter")
+        # Call the method as we return it
+        return method()
+ 
+    def show_A(self):
+        return "January"
+ 
+    def show_B(self):
+        return "February"
+ 
+    def show_C(self):
+        return "March"
 
-def show_L(L):
-	"""
-	"""
-	
-	for i in range (L):
-		L[i]
-	ledmatrix.show()
+    def show_L(self):
+        ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		#Horizontal
+		ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
+		ledmatrix.show()
 	
 
 
@@ -89,49 +112,14 @@ if __name__ == '__main__':
 
 	val = 0
 
-	r = 255 #int(random.randrange(255))
-	g = 255 #int(random.randrange(255))
-	b = 255#int(random.randrange(255))
-
-	A = [ ]
-	B = [ ]
-	C = [ ]
-	D = [ ]
-	E = [ ]
-	F = [ ]
-	G = [ ]
-	H = [ ]
-	I = [ ]
-	J = [ ]
-	K = [ ]
-	L = [#Vertical
-		ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		#Horizontal
-		ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
-		ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])]
-	M = [ ]
-	N = [ ]
-	O = [ ]
-	P = [ ]
-	Q = [ ]
-	R = [ ]
-	S = [ ]
-	T = [ ]
-	U = [ ]
-	V = [ ]
-	W = [ ]
-	X = [ ]
-	Y = [ ]
-	Z = [ ]
+	r = random.randrange(255)
+	g = random.randrange(255)
+	b = random.randrange(255)
 
 	while True:
-		show_L(L)
+
+		show_letters_digits('L')
+
 		"""if val <= 99:
 			show_letters_digits(val)
 			time.sleep(0.1)
