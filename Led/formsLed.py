@@ -78,7 +78,6 @@ class Show(object):
 class Switcher(object):
 
     def __init__(self):
-        #self.method_name    = 'show_'
         self.r              = random.randrange(255)
         self.g              = random.randrange(255)
         self.b              = random.randrange(255)
@@ -89,7 +88,7 @@ class Switcher(object):
             Call the  function corresponding to the letter
 
             Attributes:
-                argument    : 
+                argument : Letter call
 
         """
 
@@ -97,21 +96,37 @@ class Switcher(object):
         # Get the method from 'self'. Default to a lambda.
         method = getattr(self, method_name, lambda: "Invalid letter")
         # Call the method as we return it
-        print('pouet')
         return method()
 
  
     def show_A(self):
-        return "January"
+        """show_A
+
+            Position and parameters for letter A
+            
+        """
  
     def show_B(self):
-        return "February"
+        """show_B
+
+            Position and parameters for letter B
+            
+        """
  
     def show_C(self):
-        return "March"
+        """show_C
+
+            Position and parameters for letter C
+            
+        """
 
     def show_L(self):
-        print('coucou')
+        """show_L
+
+            Position and parameters for letter L
+
+        """
+
         #Vertical
         ledmatrix.set_pixel( 1 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
