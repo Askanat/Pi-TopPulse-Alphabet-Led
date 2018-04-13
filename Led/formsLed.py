@@ -175,14 +175,6 @@ class Switcher(object):
             self.b*NUMS[1])
         ledmatrix.set_pixel( 5 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
-
-        #Horizontal
-        ledmatrix.set_pixel( 2 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
-            self.b*NUMS[1])
-        ledmatrix.set_pixel( 3 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
-            self.b*NUMS[1])
-        ledmatrix.set_pixel( 4 , 3 , self.r*NUMS[1] , self.g*NUMS[1] , 
-            self.b*NUMS[1])
         #Show
         ledmatrix.show()
  
