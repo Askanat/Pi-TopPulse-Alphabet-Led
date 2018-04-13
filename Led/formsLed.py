@@ -97,7 +97,7 @@ class Switcher(object):
         # Get the method from 'self'. Default to a lambda.
         method = getattr(self, self.method_name, lambda: "Invalid letter")
         # Call the method as we return it
-        print(pouet)
+        print('pouet')
         return method()
 
  
@@ -111,7 +111,7 @@ class Switcher(object):
         return "March"
 
     def show_L(self):
-        print()
+        print('coucou')
         #Vertical
         ledmatrix.set_pixel( 1 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
