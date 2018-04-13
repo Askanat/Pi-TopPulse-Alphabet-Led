@@ -105,10 +105,16 @@ class Switcher(object):
             Position and parameters for letter A
             
         """
+        #Vertical
         ledmatrix.set_pixel( 4 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
         ledmatrix.set_pixel( 3 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
+        #Horizontal
+        ledmatrix.set_pixel( 5 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        #Show
+        ledmatrix.show()
 
  
     def show_B(self):
@@ -152,6 +158,7 @@ class Switcher(object):
             self.b*NUMS[1])
         ledmatrix.set_pixel( 4 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
+        #Show
         ledmatrix.show()
     
 
