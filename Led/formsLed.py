@@ -269,21 +269,31 @@ if __name__ == '__main__':
             val = val + 1
 
         if val > 99 and val < 104:
+            ledmatrix.clear()
+            ledmatrix.show()
             if val == 100:
                 led.show_letters_digits('A')
                 time.sleep(1)
+                ledmatrix.clear()
+                ledmatrix.show()
 
             if val == 101:
                 led.show_letters_digits('B')
                 time.sleep(1)
+                ledmatrix.clear()
+                ledmatrix.show()
 
             if val == 102:
                 led.show_letters_digits('C')
                 time.sleep(1)
+                ledmatrix.clear()
+                ledmatrix.show()
 
             if val == 103:
                 led.show_letters_digits('L')
                 time.sleep(1)
+                ledmatrix.clear()
+                ledmatrix.show()
             val = val + 1       
         if val >= 104:
             ledmatrix.clear()
