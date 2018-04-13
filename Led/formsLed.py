@@ -31,7 +31,7 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 class Show(object):
 
     def __init__(self):
-        self.regex  = r"(^[a-zA-Z]*)"
+        self.regex  = re.compile(r"(^[a-zA-Z]*)")
         self.r      = random.randrange(255)
         self.g      = random.randrange(255)
         self.b      = random.randrange(255)
@@ -62,7 +62,7 @@ class Show(object):
             Attributes:
                 val : number or letter
         """
-        if val == 'L' is not None:
+        if self.regex.match(val):
             switch = Switcher()
             switch.call_letters(val)
             
@@ -105,6 +105,11 @@ class Switcher(object):
             Position and parameters for letter A
             
         """
+        ledmatrix.set_pixel( 4 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 3 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+
  
     def show_B(self):
         """show_B
@@ -163,7 +168,7 @@ if __name__ == '__main__':
 
     while True:
 
-        led.show_letters_digits('L')
+        led.show_letters_digits('A')
         time.sleep(1)
 
         """if val <= 99:
