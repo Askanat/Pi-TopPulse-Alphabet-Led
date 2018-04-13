@@ -64,7 +64,6 @@ class Show(object):
         if re.search(val, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             switch = Switcher()
             switch.call_letters(val)
-            
         else :
             value   = int(val)
             abs_val = abs(value)
@@ -267,17 +266,32 @@ if __name__ == '__main__':
         led.show_letters_digits('C')
         time.sleep(1)
 
-        """if val <= 99:
+        if val <= 99:
             show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1
-        if val > 99:
+
+        if val > 99 && < 104:
+            if val == 100:
+                led.show_letters_digits('A')
+                time.sleep(1)
+
+            if val == 101:
+                led.show_letters_digits('B')
+                time.sleep(1)
+
+            if val == 102:
+                led.show_letters_digits('C')
+                time.sleep(1)
+
+            if val == 103:
+                led.show_letters_digits('L')
+                time.sleep(1)
+            val = val + 1       
+        if val >= 104:
             ledmatrix.clear()
             ledmatrix.show()
             val = 0 
-            self.r = random.randrange(255)
-            self.g = random.randrange(255)
-            self.b = random.randrange(255)
             show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1"""
