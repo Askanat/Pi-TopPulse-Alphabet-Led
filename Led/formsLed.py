@@ -78,7 +78,7 @@ class Show(object):
 class Switcher(object):
 
     def __init__(self):
-        self.method_name    = 'show'
+        self.method_name    = 'show_'
         self.r              = random.randrange(255)
         self.g              = random.randrange(255)
         self.b              = random.randrange(255)
@@ -149,6 +149,7 @@ if __name__ == '__main__':
     while True:
 
         led.show_letters_digits('L')
+        time.sleep(1)
 
         """if val <= 99:
             show_letters_digits(val)
