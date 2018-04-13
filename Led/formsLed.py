@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#! /usr/bin/python3.6
 # -*- coding: utf-8 -*-
 
 # Display different forms on the pi-topPULSE led matrix
@@ -32,59 +32,59 @@ REGEXP = r"(^[a-zA-Z]*)"
 
 class Show(object):
 
-	def __init__(self):
+    def __init__(self):
 
 
-	def show_digit(val, xd, yd):
-		"""show_digit
+    def show_digit(val, xd, yd):
+        """show_digit
 
-			Calculate position of leds on and off
+            Calculate position of leds on and off
 
-			Attributes:
-				val : number display
-				xd  : width display
-				yd  : height display
-		"""
+            Attributes:
+                val : number display
+                xd  : width display
+                yd  : height display
+        """
 
-		offset = val * 15
-		for p in range(offset, offset + 15):
-			xt = p % 3
-			yt = (p-offset) // 3
-			ledmatrix.set_pixel( xt+xd, 6-yt-yd, r*NUMS[p], g*NUMS[p], b*NUMS[p])
-		ledmatrix.show()
+        offset = val * 15
+        for p in range(offset, offset + 15):
+            xt = p % 3
+            yt = (p-offset) // 3
+            ledmatrix.set_pixel( xt+xd, 6-yt-yd, r*NUMS[p], g*NUMS[p], b*NUMS[p])
+        ledmatrix.show()
 
-	def show_letters_digits(val):
-		"""show_letters_digits
+    def show_letters_digits(val):
+        """show_letters_digits
 
-			Calculate number of 
+            Calculate number of 
 
-			Attributes:
-				val : number or letter
-		"""
-		if re.match(REGEXP, val) is not None:
-			switch = Switcher
-			switch.call_letters(val)
-			
-		else :
-			value 	= int(val)
-			abs_val = abs(value)
-			tens 	= abs_val // 10
-			units 	= abs_val % 10
-			if (abs_val > 9):
-				show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
-			show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
+            Attributes:
+                val : number or letter
+        """
+        if re.match(REGEXP, val) is not None:
+            switch = Switcher
+            switch.call_letters(val)
+            
+        else :
+            value   = int(val)
+            abs_val = abs(value)
+            tens    = abs_val // 10
+            units   = abs_val % 10
+            if (abs_val > 9):
+                show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
+            show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
 
 class Switcher(object):
 
-	def __init__(self):
+    def __init__(self):
 
     def call_letters(self, argument):
         """call_letters
 
-        	Call the  function corresponding to the letter
+            Call the  function corresponding to the letter
 
-        	Attributes:
-        		argument 	: 
+            Attributes:
+                argument    : 
 
         """
 
@@ -104,7 +104,7 @@ class Switcher(object):
         return "March"
 
     def show_L(self):
-    	#Vertical
+        #Vertical
         ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
         ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
         ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
@@ -116,40 +116,40 @@ class Switcher(object):
         ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
         ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
         ledmatrix.show()
-	
+    
 
 
 ###############################################################################
-# MAIN																		  #
+# MAIN                                                                        #
 ###############################################################################
 if __name__ == '__main__':
-	ledmatrix.rotation(0)
-	ledmatrix.clear()
+    ledmatrix.rotation(0)
+    ledmatrix.clear()
 
-	val = 0
+    val = 0
 
-	r = random.randrange(255)
-	g = random.randrange(255)
-	b = random.randrange(255)
+    r = random.randrange(255)
+    g = random.randrange(255)
+    b = random.randrange(255)
 
-	while True:
+    while True:
 
-		show_letters_digits('L')
+        show_letters_digits('L')
 
-		"""if val <= 99:
-			show_letters_digits(val)
-			time.sleep(0.1)
-			val = val + 1
-		if val > 99:
-			ledmatrix.clear()
-			ledmatrix.show()
-			val = 0 
-			r = random.randrange(255)
-			g = random.randrange(255)
-			b = random.randrange(255)
-			show_letters_digits(val)
-			time.sleep(0.1)
-			val = val + 1"""
+        """if val <= 99:
+            show_letters_digits(val)
+            time.sleep(0.1)
+            val = val + 1
+        if val > 99:
+            ledmatrix.clear()
+            ledmatrix.show()
+            val = 0 
+            r = random.randrange(255)
+            g = random.randrange(255)
+            b = random.randrange(255)
+            show_letters_digits(val)
+            time.sleep(0.1)
+            val = val + 1"""
 
-	ledmatrix.clear()
-	ledmatrix.show()
+    ledmatrix.clear()
+    ledmatrix.show()
