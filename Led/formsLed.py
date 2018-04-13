@@ -161,6 +161,8 @@ class Switcher(object):
             self.b*NUMS[1])
         ledmatrix.set_pixel( 1 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
+        ledmatrix.set_pixel( 1 , 0 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
 
         #Vertical Gauche
         ledmatrix.set_pixel( 2 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
@@ -175,9 +177,11 @@ class Switcher(object):
             self.b*NUMS[1])
         ledmatrix.set_pixel( 4 , 2 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
-        ledmatrix.set_pixel( 3 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+        ledmatrix.set_pixel( 4 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
-        ledmatrix.set_pixel( 2 , 1 , self.r*NUMS[1] , self.g*NUMS[1] , 
+        ledmatrix.set_pixel( 3 , 0 , self.r*NUMS[1] , self.g*NUMS[1] , 
+            self.b*NUMS[1])
+        ledmatrix.set_pixel( 2 , 0 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
         #Show
         ledmatrix.show()
