@@ -75,6 +75,7 @@ class Show(object):
 class Switcher(object):
 
     def __init__(self):
+        self.method_name = 'show'
 
     def call_letters(self, argument):
         """call_letters
@@ -86,7 +87,7 @@ class Switcher(object):
 
         """
 
-        method_name = 'show_' + str(argument)
+        method_name = method_name + str(argument)
         # Get the method from 'self'. Default to a lambda.
         method = getattr(self, method_name, lambda: "Invalid letter")
         # Call the method as we return it
