@@ -62,7 +62,7 @@ class Show(object):
                 val : number or letter
         """
         if re.search(val, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            print(pouet)
+            print("pouet")
             switch = Switcher()
             switch.call_letters(val)
             
