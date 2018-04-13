@@ -35,7 +35,7 @@ class Show(object):
 	def __init__(self):
 
 
-    def show_digit(val, xd, yd):
+	def show_digit(val, xd, yd):
 		"""show_digit
 
 			Calculate position of leds on and off
@@ -53,7 +53,7 @@ class Show(object):
 			ledmatrix.set_pixel( xt+xd, 6-yt-yd, r*NUMS[p], g*NUMS[p], b*NUMS[p])
 		ledmatrix.show()
 
-    def show_letters_digits(val):
+	def show_letters_digits(val):
 		"""show_letters_digits
 
 			Calculate number of 
@@ -61,7 +61,6 @@ class Show(object):
 			Attributes:
 				val : number or letter
 		"""
-
 		if re.match(REGEXP, val) is not None:
 			switch = Switcher
 			switch.call_letters(val)
