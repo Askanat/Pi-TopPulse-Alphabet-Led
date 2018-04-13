@@ -146,11 +146,13 @@ if __name__ == '__main__':
     led = Show()
     val = 0
 
-    while True:
+    led.show_letters_digits('L')
+
+    """while True:
 
         led.show_letters_digits('L')
 
-        """if val <= 99:
+        if val <= 99:
             show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1
