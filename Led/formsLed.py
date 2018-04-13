@@ -175,7 +175,7 @@ if __name__ == '__main__':
 
     while True:
 
-        led.show_letters_digits('L')
+        led.show_letters_digits('A')
         time.sleep(1)
 
         """if val <= 99:
