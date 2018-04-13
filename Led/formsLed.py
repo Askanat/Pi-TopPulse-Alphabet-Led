@@ -34,6 +34,18 @@ R = 255 #int(random.randrange(255))
 G = 255 #int(random.randrange(255))
 B = 255 #int(random.randrange(255))
 
+"""Vertical
+	ledmatrix.set_pixel( 1 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 2 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 3 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 4 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 5 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 6 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	Horizontal
+	ledmatrix.set_pixel( 2 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 3 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
+	ledmatrix.set_pixel( 4 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])"""
+
 A = [ ]
 B = [ ]
 C = [ ]
@@ -45,17 +57,7 @@ H = [ ]
 I = [ ]
 J = [ ]
 K = [ ]
-L = [#Vertical
-	ledmatrix.set_pixel( 1 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 2 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 3 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 4 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 5 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 6 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	#Horizontal
-	ledmatrix.set_pixel( 2 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 3 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 4 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])]
+L = [ ]
 M = [ ]
 N = [ ]
 O = [ ]
