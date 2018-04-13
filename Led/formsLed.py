@@ -8,7 +8,7 @@
 import ptpulse
 from ptpulse import ledmatrix
 
-import random
+import random # FIXME keep the same import format (as above)
 
 import re
 
@@ -31,11 +31,12 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 class Show(object):
 
     def __init__(self):
-        self.r      = random.randrange(255)
+        self.r      = random.randrange(255) # FIXME multiple spaces? var naming?
         self.g      = random.randrange(255)
         self.b      = random.randrange(255)
 
-    def show_digit(self, val, xd, yd):
+    def show_digit(self, val, xd, yd): # FIXME use typing as `def show_digit(self, val: int, xd: int, yd: int) -> None:`
+        # FIXME for doc use -> :param <name>: description
         """show_digit
 
             Calculate position of leds on and off
@@ -46,7 +47,7 @@ class Show(object):
                 yd  : height display
         """
 
-        offset = val * 15
+        offset = val * 15 # FIXME avoid harcoded values
         for p in range(offset, offset + 15):
             xt = p % 3
             yt = (p-offset) // 3
@@ -107,6 +108,16 @@ class Switcher(object):
         #Vertical Droit
         ledmatrix.set_pixel( 3 , 6 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
+        # FIXME readable? suggestion:
+        """
+        ledmatrix.set_pixel(
+            3,
+            6, 
+            self.r * NUMS[1],
+            self.g * NUMS[1], 
+            self.b * NUMS[1]
+        )
+        """
         ledmatrix.set_pixel( 2 , 5 , self.r*NUMS[1] , self.g*NUMS[1] , 
             self.b*NUMS[1])
         ledmatrix.set_pixel( 2 , 4 , self.r*NUMS[1] , self.g*NUMS[1] , 
@@ -274,7 +285,7 @@ if __name__ == '__main__':
             if val == 100:
                 led.show_letters_digits('A')
                 time.sleep(1)
-                ledmatrix.clear()
+                ledmatrix.clear() # FIXME wrap those 2 calls in a function to avoid duplication
                 ledmatrix.show()
 
             if val == 101:
