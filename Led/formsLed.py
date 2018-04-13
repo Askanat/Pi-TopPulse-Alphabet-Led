@@ -31,7 +31,6 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 class Show(object):
 
     def __init__(self):
-        self.regex  = re.compile(r"(^[a-zA-Z]*)")
         self.r      = random.randrange(255)
         self.g      = random.randrange(255)
         self.b      = random.randrange(255)
@@ -62,7 +61,8 @@ class Show(object):
             Attributes:
                 val : number or letter
         """
-        if self.regex.search(val):
+        if re.search(val, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+            print(pouet)
             switch = Switcher()
             switch.call_letters(val)
             
