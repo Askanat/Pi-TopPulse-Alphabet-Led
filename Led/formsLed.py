@@ -35,7 +35,7 @@ class Show(object):
         self.g      = random.randrange(255)
         self.b      = random.randrange(255)
 
-    def show_digit(val, xd, yd):
+    def show_digit(self, val, xd, yd):
         """show_digit
 
             Calculate position of leds on and off
@@ -71,8 +71,8 @@ class Show(object):
             tens    = abs_val // 10
             units   = abs_val % 10
             if (abs_val > 9):
-                show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
-            show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
+                self.show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
+            self.show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
 
 class Switcher(object):
 
