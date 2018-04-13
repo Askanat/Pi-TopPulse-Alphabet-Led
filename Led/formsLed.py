@@ -59,7 +59,7 @@ def show_letters_digits(val):
 
 	if re.match(REGEXP, val) is not None:
 		switch = Switcher
-		switch.call_letters(self,val)
+		switch.call_letters(val)
 		
 	else :
 		value 	= int(val)
@@ -71,24 +71,31 @@ def show_letters_digits(val):
 		show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
 
 class Switcher(object):
-    def call_letters(self, argument):
-        """Dispatch method"""
+    def call_letters(argument):
+        """call_letters
+
+        	Call the  function corresponding to the letter
+
+        	Attributes:
+        		argument : Letter
+
+        """
         method_name = 'show_' + str(argument)
         # Get the method from 'self'. Default to a lambda.
-        method = getattr(self, method_name, lambda: "Invalid letter")
+        method = getattr(method_name, lambda: "Invalid letter")
         # Call the method as we return it
         return method()
  
-    def show_A(self):
+    def show_A():
         return "January"
  
-    def show_B(self):
+    def show_B():
         return "February"
  
-    def show_C(self):
+    def show_C():
         return "March"
 
-    def show_L(self):
+    def show_L():
     	#Vertical
         ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
         ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])
