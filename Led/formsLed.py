@@ -59,7 +59,7 @@ def show_letters_digits(val):
 
 	if re.match(REGEXP, val) is not None:
 		switch = Switcher
-		switch.call_letters(val)
+		switch.call_letters(self,val)
 		
 	else :
 		value 	= int(val)
