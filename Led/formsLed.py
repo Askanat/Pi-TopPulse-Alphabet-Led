@@ -62,7 +62,7 @@ class Show(object):
             Attributes:
                 val : number or letter
         """
-        if re.match(self.regex, val) is not None:
+        if val == 'L' is not None:
             switch = Switcher()
             switch.call_letters(val)
             
