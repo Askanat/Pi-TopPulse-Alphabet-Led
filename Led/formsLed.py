@@ -78,7 +78,7 @@ class Show(object):
 class Switcher(object):
 
     def __init__(self):
-        self.method_name    = 'show_'
+        #self.method_name    = 'show_'
         self.r              = random.randrange(255)
         self.g              = random.randrange(255)
         self.b              = random.randrange(255)
@@ -93,9 +93,9 @@ class Switcher(object):
 
         """
 
-        method_name = self.method_name + argument
+        method_name = 'show_' + argument
         # Get the method from 'self'. Default to a lambda.
-        method = getattr(self, self.method_name, lambda: "Invalid letter")
+        method = getattr(self, method_name, lambda: "Invalid letter")
         # Call the method as we return it
         print('pouet')
         return method()
