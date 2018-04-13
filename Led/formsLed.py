@@ -51,7 +51,7 @@ class Show(object):
             ledmatrix.set_pixel( xt+xd, 6-yt-yd, r*NUMS[p], g*NUMS[p], b*NUMS[p])
         ledmatrix.show()
 
-    def show_letters_digits(val):
+    def show_letters_digits(self, val):
         """show_letters_digits
 
             Calculate number of 
