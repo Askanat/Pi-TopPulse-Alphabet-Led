@@ -30,9 +30,9 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 
 REGEXP = r"(^[a-zA-Z]*)"
 
-R = int(random.randrange(255))
-G = int(random.randrange(255))
-B = int(random.randrange(255))
+int(R) = int(random.randrange(255))
+int(G) = int(random.randrange(255))
+int(B) = int(random.randrange(255))
 
 A = [ ]
 B = [ ]
