@@ -263,10 +263,6 @@ if __name__ == '__main__':
     val = 0
 
     while True:
-
-        led.show_letters_digits('C')
-        time.sleep(1)
-
         if val <= 99:
             led.show_letters_digits(val)
             time.sleep(0.1)
