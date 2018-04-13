@@ -59,7 +59,7 @@ class Show(object):
             Attributes:
                 val : number or letter
         """
-        if re.match(regex, val) is not None:
+        if re.match(self.regex, val) is not None:
             switch = Switcher
             switch.call_letters(val)
             
@@ -87,9 +87,9 @@ class Switcher(object):
 
         """
 
-        method_name = method_name + str(argument)
+        method_name = self.method_name + str(argument)
         # Get the method from 'self'. Default to a lambda.
-        method = getattr(self, method_name, lambda: "Invalid letter")
+        method = getattr(self, self.method_name, lambda: "Invalid letter")
         # Call the method as we return it
         return method()
  
