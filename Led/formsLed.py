@@ -30,24 +30,12 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 
 REGEXP = r"(^[a-zA-Z]*)"
 
-R = 255 #int(random.randrange(255))
-G = 255 #int(random.randrange(255))
-B = 255 #int(random.randrange(255))
-
-"""Vertical
-	ledmatrix.set_pixel( 1 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 2 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 3 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 4 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 5 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 1 , 6 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	Horizontal
-	ledmatrix.set_pixel( 2 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 3 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1]),
-	ledmatrix.set_pixel( 4 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])"""
+r = 255 #int(random.randrange(255))
+g = 255 #int(random.randrange(255))
+b = 255#int(random.randrange(255))
 
 A = [ ]
-B = [ ]
+b = [ ]
 C = [ ]
 D = [ ]
 E = [ ]
@@ -57,7 +45,17 @@ H = [ ]
 I = [ ]
 J = [ ]
 K = [ ]
-L = [ ]
+L = [#Vertical
+	ledmatrix.set_pixel( 1 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 2 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 3 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 4 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 5 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 1 , 6 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	#Horizontal
+	ledmatrix.set_pixel( 2 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 3 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1]),
+	ledmatrix.set_pixel( 4 , 1 , r*NUMS[1] , g*NUMS[1] , b*NUMS[1])]
 M = [ ]
 N = [ ]
 O = [ ]
@@ -88,7 +86,7 @@ def show_digit(val, xd, yd):
 	for p in range(offset, offset + 15):
 		xt = p % 3
 		yt = (p-offset) // 3
-		ledmatrix.set_pixel( xt+xd, 6-yt-yd, R*NUMS[p], G*NUMS[p], B*NUMS[p])
+		ledmatrix.set_pixel( xt+xd, 6-yt-yd, r*NUMS[p], g*NUMS[p], b*NUMS[p])
 	ledmatrix.show()
 
 def show_letters_digits(val):
@@ -117,7 +115,8 @@ def show_L():
 	"""
 	"""
 	
-	ledmatrix.set_pixel( 1 , 1 , R*NUMS[1] , G*NUMS[1] , B*NUMS[1])
+	for i in range (L):
+		L[i]
 	ledmatrix.show()
 	
 
@@ -141,9 +140,9 @@ if __name__ == '__main__':
 			ledmatrix.clear()
 			ledmatrix.show()
 			val = 0 
-			R = random.randrange(255)
-			G = random.randrange(255)
-			B = random.randrange(255)
+			r = random.randrange(255)
+			g = random.randrange(255)
+			b = random.randrange(255)
 			show_letters_digits(val)
 			time.sleep(0.1)
 			val = val + 1"""
