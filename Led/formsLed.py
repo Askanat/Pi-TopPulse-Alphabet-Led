@@ -143,12 +143,6 @@ if __name__ == '__main__':
     led = Show()
     val = 0
 
-    self.r = random.randrange(255)
-    self.g = random.randrange(255)
-    self.b = random.randrange(255)
-
-
-
     while True:
 
         led.show_letters_digits('L')
