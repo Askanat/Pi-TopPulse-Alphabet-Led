@@ -70,7 +70,7 @@ def show_letters_digits(val):
 		show_digit(tens, OFFSET_LEFT, OFFSET_TOP)
 	show_digit(units, OFFSET_LEFT+4, OFFSET_TOP)
 
-def show_L():
+def show_L(L):
 	"""
 	"""
 	
@@ -131,7 +131,7 @@ if __name__ == '__main__':
 	Z = [ ]
 
 	while True:
-		show_L()
+		show_L(L)
 		"""if val <= 99:
 			show_letters_digits(val)
 			time.sleep(0.1)
