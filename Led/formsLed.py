@@ -1,10 +1,6 @@
 #! /usr/bin/python3.6
 # -*- coding: utf-8 -*-
 
-# Display different forms on the pi-topPULSE led matrix
-#
-# Based on the script to display digits on pi-topPULSE
-
 """
 MIT License
 Copyright (c) 2018 Florian Vaissiere [https://github.com/FlorianVaissiere]
@@ -28,6 +24,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+""" 
+    Display different forms on the pi-topPULSE led matrix
+    Based on the script to display digits on pi-topPULSE
+"""
+
+
 ###############################################################################
 # Import                                                                      #
 ###############################################################################
@@ -47,8 +49,14 @@ from time import sleep
 ###############################################################################
 # Constant                                                                    #
 ###############################################################################
+# Grid border
 OFFSET_LEFT = 0
 OFFSET_TOP = 0
+
+# Sleep
+1S  = 1     # 1 second
+M1S = 0.1   # Less than 1 second
+
 
 NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
@@ -78,9 +86,9 @@ class Show(object):
             Calculate position of leds on and off
 
             Attributes:
-               : int <val> : number display
-               : int <xd>  : width display
-               : int <yd>  : height display
+               :param <val> : (int) number display
+               :param <xd>  : (int) width display
+               :param <yd>  : (int) height display
         """
 
         offset = val * 15
@@ -102,7 +110,7 @@ class Show(object):
             Make the diffrence between int and str and call different function
 
             Attributes:
-               : str or int <val> : number or letter
+               :param <val> : (int or str) number or letter
         """
 
         valStr = str(val)
@@ -144,9 +152,9 @@ class Show(object):
 class Switcher(object):
 
     def __init__(self):
-        self.r              = random.randrange(255)
-        self.g              = random.randrange(255)
-        self.b              = random.randrange(255)
+        self.r = random.randrange(255)
+        self.g = random.randrange(255)
+        self.b = random.randrange(255)
 
     def call_letters(self, argument: str):
         """call_letters
@@ -154,7 +162,7 @@ class Switcher(object):
             Return and call the function corresponding to the letter 
 
             Attributes:
-                : str <argument> : Letter call
+                :param <argument> : (str) Letter call
 
         """
 
@@ -170,6 +178,7 @@ class Switcher(object):
             Position and parameters for letter A
             
         """
+
         #Vertical Droit
         ledmatrix.set_pixel(
             3 ,
@@ -571,32 +580,32 @@ if __name__ == '__main__':
         if val <= 99:
             led.show_letters_digits(val)
             time.sleep(0.1)
-            val = val + 1
+            val += 1
 
-        if val > 99 and val < 104:
+        if 99 < val < 104:
             led.clean_display()
             if val == 100:
                 led.show_letters_digits('A')
-                time.sleep(1)
+                time.sleep(1S)
 
             if val == 101:
                 led.show_letters_digits('B')
-                time.sleep(1)
+                time.sleep(1S)
 
             if val == 102:
                 led.show_letters_digits('C')
-                time.sleep(1)
+                time.sleep(1S)
 
             if val == 103:
                 led.show_letters_digits('L')
-                time.sleep(1)
+                time.sleep(1S)
 
-            val = val + 1       
+            val += 1       
         if val >= 104:
             led.clean_display()
             val = 0 
             led.show_letters_digits(val)
-            time.sleep(0.1)
-            val = val + 1
+            time.sleep(M1S)
+            val += 1
 
     led.clean_display()
