@@ -35,7 +35,7 @@ import ptpulse
 from ptpulse import ledmatrix
 
 import random
-from random import random
+from random import randrange
 
 import re
 from re import search
