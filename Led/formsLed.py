@@ -106,7 +106,7 @@ class Show(object):
         """
 
         valStr = str(val)
-        
+
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             switch = Switcher()
             switch.call_letters(val)
@@ -148,7 +148,7 @@ class Switcher(object):
         self.g              = random.randrange(255)
         self.b              = random.randrange(255)
 
-    def call_letters(self, argument: str) -> method:
+    def call_letters(self, argument: str):
         """call_letters
 
             Return and call the function corresponding to the letter 
