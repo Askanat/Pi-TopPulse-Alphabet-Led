@@ -563,7 +563,7 @@ class Switcher(object):
 ###############################################################################
 if __name__ == '__main__':
     ledmatrix.rotation(0)
-    led.clean_display()
+    ledmatrix.clear()
 
     led = Show()
     val = 0
