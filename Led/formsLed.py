@@ -69,9 +69,9 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
 class Show(object):
 
     def __init__(self):
-        self.r = random.randrange(255)
+        self.r = random.randrange(255) # FIXME already imported, usage: self.r = randrange(255)
         self.g = random.randrange(255)
-        self.b = random.randrange(255)
+        self.b = random.randrange(255) 
 
     def show_digit(self, val: int, xd: int, yd: int) -> None:
         """show_digit
