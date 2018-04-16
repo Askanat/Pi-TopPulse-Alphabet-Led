@@ -163,7 +163,6 @@ class Switcher(object):
         method = getattr(self, method_name, lambda: "Invalid letter")
         # Call the method as we return it
         return method()
-
  
     def show_A(self) -> None:
         """show_A
