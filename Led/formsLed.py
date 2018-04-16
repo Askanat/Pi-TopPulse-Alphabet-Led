@@ -41,6 +41,7 @@ import re
 from re import search
 
 import time
+from time import sleep
 
 
 ###############################################################################
