@@ -153,8 +153,8 @@ class WriteLetters(object):
 
     def led_letters(self) -> None:
 
-        for i in range(A[]):
-            for j in range(A[i]):
+        for i in range(len(A)):
+            for j in range(len(A[i])):
                 ledmatrix.set_pixel( 
                     A[i], 
                     A[i, [j]], 
