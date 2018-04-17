@@ -143,7 +143,7 @@ class Show(object):
         valStr = str(val)
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            show_letters(0, OFFSET_LEFT+2, OFFSET_TOP)
+            self.show_letters(0, OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
             value   = int(val)
