@@ -52,7 +52,7 @@ OFFSET_LEFT = 0
 OFFSET_TOP = 0
 
 # Sleep
-1S  = 1     # 1 second
+S1  = 1     # 1 second
 M1S = 0.1   # Less than 1 second
 
 
