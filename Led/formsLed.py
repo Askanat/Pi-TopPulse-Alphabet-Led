@@ -125,9 +125,9 @@ class Show(object):
             ledmatrix.set_pixel( 
                 xt+xd, 
                 6-yt-yd, 
-                self.r*NUMS[p], 
-                self.g*NUMS[p], 
-                self.b*NUMS[p]
+                self.r*LETTERS[p], 
+                self.g*LETTERS[p], 
+                self.b*LETTERS[p]
             )
         ledmatrix.show()
 
