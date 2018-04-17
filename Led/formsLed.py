@@ -67,7 +67,7 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
-A = {2:[0, 1, 2, 3, 4, 5, 6], 5:[0, 1, 2, 3, 4, 5, 6], 3:[3,6], 4:[3,6]}
+A = [ [], [], [0, 1, 2, 3, 4, 5, 6], [3,6], [3,6], [0, 1, 2, 3, 4, 5, 6], [] ]
 
 
 ###############################################################################
@@ -161,21 +161,16 @@ class WriteLetters(object):
         print ("1")
         for i in range(0,7):
             print ("2")
-            try:
-                print ("3")
-                for j in range(len(A[i])):
-                    print ("4")
-                    ledmatrix.set_pixel( 
-                        A[i], 
-                        A[i, [j]], 
-                        self.r*NUMS[1], 
-                        self.g*NUMS[1], 
-                        self.b*NUMS[1]
-                    )
-                    ledmatrix.show()
-            except:
-                print ("5")
-                pass
+            for j in range(len(A[i])):
+                print ("4")
+                ledmatrix.set_pixel( 
+                    i, 
+                    A[[j]], 
+                    self.r*NUMS[1], 
+                    self.g*NUMS[1], 
+                    self.b*NUMS[1]
+                )
+                ledmatrix.show()
 
 
 ###############################################################################
