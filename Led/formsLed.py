@@ -67,6 +67,9 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
+LETTERS =   [1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1 # A 
+            ]
+
 A = [ [], [], [0, 1, 2, 3, 4, 5, 6], [3,6], [3,6], [0, 1, 2, 3, 4, 5, 6], [] ]
 
 
@@ -104,6 +107,30 @@ class Show(object):
             )
         ledmatrix.show()
 
+    def show_letters(self, val: int, xd: int, yd: int) -> None:
+        """show_digit
+
+            Calculate position of leds on and off
+
+            Attributes:
+               : int <val> : number display
+               : int <xd>  : width display
+               : int <yd>  : height display
+        """
+
+        offset = val * 15
+        for p in range(offset, offset + 15):
+            xt = p % 3
+            yt = (p-offset) // 3
+            ledmatrix.set_pixel( 
+                xt+xd, 
+                6-yt-yd, 
+                self.r*NUMS[p], 
+                self.g*NUMS[p], 
+                self.b*NUMS[p]
+            )
+        ledmatrix.show()
+
     def show_letters_digits(self, val) -> None:
         """show_letters_digits
 
@@ -116,8 +143,8 @@ class Show(object):
         valStr = str(val)
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            letter = WriteLetters()
-            letter.led_letters()
+            show_letters(0, OFFSET_LEFT+2, OFFSET_TOP)
+
         else :
             value   = int(val)
             abs_val = abs(value)
@@ -185,7 +212,7 @@ if __name__ == '__main__':
 
     while True:
         led.show_letters_digits('A')
-        time.sleep(10)
+        time.sleep(60)
         """if val <= 99:
             led.show_letters_digits(val)
             time.sleep(0.1)
