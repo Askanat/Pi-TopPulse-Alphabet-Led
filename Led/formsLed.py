@@ -61,6 +61,8 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
+A = {2:[0, 1, 2, 3, 4, 5, 6], 5:[0, 1, 2, 3, 4, 5, 6], 3:[3,6], 4:[3,6]}
+
 
 ###############################################################################
 # Show Class                                                                  #
@@ -108,8 +110,8 @@ class Show(object):
         valStr = str(val)
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            switch = Switcher()
-            switch.call_letters(val)
+            letter = WriteLetters()
+            letter.led_letters()
         else :
             value   = int(val)
             abs_val = abs(value)
@@ -134,6 +136,7 @@ class Show(object):
             Function of ledmatrix to remove the old display
 
         """
+
         ledmatrix.clear()
         ledmatrix.show()
 
@@ -144,11 +147,22 @@ class Show(object):
 class WriteLetters(object):
 
     def __init__(self):
+        self.r = random.randrange(255)
+        self.g = random.randrange(255)
+        self.b = random.randrange(255)
 
+    def led_letters(self) -> None:
 
-    def calculate_led_letters(self, val: str) -> None:
-
-        
+        for i in range(A):
+            for j in range A[i]:
+                ledmatrix.set_pixel( 
+                    A[i], 
+                    A[i, [j]], 
+                    self.r*NUMS[1], 
+                    self.g*NUMS[1], 
+                    self.b*NUMS[1]
+                )
+                ledmatrix.show()
 
 
 ###############################################################################
@@ -162,7 +176,8 @@ if __name__ == '__main__':
     val = 0
 
     while True:
-        if val <= 99:
+        led.show_letters_digits('A')
+        """if val <= 99:
             led.show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1
@@ -191,6 +206,6 @@ if __name__ == '__main__':
             val = 0 
             led.show_letters_digits(val)
             time.sleep(0.1)
-            val = val + 1
+            val = val + 1"""
 
     led.clean_display()
