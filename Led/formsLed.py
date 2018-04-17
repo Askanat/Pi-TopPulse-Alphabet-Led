@@ -47,8 +47,14 @@ from time import sleep
 ###############################################################################
 # Constant                                                                    #
 ###############################################################################
+# Grid border
 OFFSET_LEFT = 0
 OFFSET_TOP = 0
+
+# Sleep
+1S  = 1     # 1 second
+M1S = 0.1   # Less than 1 second
+
 
 NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
@@ -152,10 +158,13 @@ class WriteLetters(object):
         self.b = random.randrange(255)
 
     def led_letters(self) -> None:
-
+        print ("1")
         for i in range(0,7):
+            print ("2")
             try:
+                print ("3")
                 for j in range(len(A[i])):
+                    print ("4")
                     ledmatrix.set_pixel( 
                         A[i], 
                         A[i, [j]], 
@@ -165,6 +174,7 @@ class WriteLetters(object):
                     )
                     ledmatrix.show()
             except:
+                print ("5")
                 pass
 
 
@@ -180,6 +190,7 @@ if __name__ == '__main__':
 
     while True:
         led.show_letters_digits('A')
+        time.sleep(1S)
         """if val <= 99:
             led.show_letters_digits(val)
             time.sleep(0.1)
