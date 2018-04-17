@@ -154,15 +154,18 @@ class WriteLetters(object):
     def led_letters(self) -> None:
 
         for i in range(0,7):
-            for j in range(len(A[i])):
-                ledmatrix.set_pixel( 
-                    A[i], 
-                    A[i, [j]], 
-                    self.r*NUMS[1], 
-                    self.g*NUMS[1], 
-                    self.b*NUMS[1]
-                )
-                ledmatrix.show()
+            try:
+                for j in range(len(A[i])):
+                    ledmatrix.set_pixel( 
+                        A[i], 
+                        A[i, [j]], 
+                        self.r*NUMS[1], 
+                        self.g*NUMS[1], 
+                        self.b*NUMS[1]
+                    )
+                    ledmatrix.show()
+            except:
+                pass
 
 
 ###############################################################################
