@@ -49,7 +49,7 @@ from time import sleep
 ###############################################################################
 # Grid border
 OFFSET_LEFT = 0
-OFFSET_TOP = 0
+OFFSET_TOP = 1
 
 # Sleep
 S1  = 1     # 1 second
@@ -67,10 +67,15 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
         1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
-LETTERS =   [1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1 # A 
-            ]
-
-A = [ [], [], [0, 1, 2, 3, 4, 5, 6], [3,6], [3,6], [0, 1, 2, 3, 4, 5, 6], [] ]
+LETTERS =   [1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # A
+	     1, 0, 0,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1, # B
+	     0, 0, 0,   1, 1, 1,   1, 0, 0,   1, 0, 0,   1, 1, 1, # C
+	     0, 0, 1,   0, 0, 1,   1, 1, 1,   1, 0, 1,   1, 1, 1, # D
+	     1, 1, 1,   1, 0, 0,   1, 1, 1,   1, 0, 0,   1, 1, 1, # E
+	     1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 1, 1, # L
+	     1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1, # M
+	     0, 0, 0,   0, 0, 0,   1, 1, 1,   1, 0, 1,   1, 0, 1  # N
+	    ]
 
 
 ###############################################################################
@@ -143,7 +148,7 @@ class Show(object):
         valStr = str(val)
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            self.show_letters(0, OFFSET_LEFT+2, OFFSET_TOP)
+            self.show_letters(5, OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
             value   = int(val)
@@ -172,32 +177,6 @@ class Show(object):
 
         ledmatrix.clear()
         ledmatrix.show()
-
-
-###############################################################################
-# WriteLetters Class                                                          #
-###############################################################################
-class WriteLetters(object):
-
-    def __init__(self):
-        self.r = random.randrange(255)
-        self.g = random.randrange(255)
-        self.b = random.randrange(255)
-
-    def led_letters(self) -> None:
-        print ("1")
-        for i in range(0,7):
-            print ("2")
-            for j in range(len(A[i])):
-                print ("4")
-                ledmatrix.set_pixel( 
-                    i, 
-                    A[[j]], 
-                    self.r*NUMS[1], 
-                    self.g*NUMS[1], 
-                    self.b*NUMS[1]
-                )
-                ledmatrix.show()
 
 
 ###############################################################################
