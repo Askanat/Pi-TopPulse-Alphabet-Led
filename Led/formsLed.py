@@ -117,9 +117,9 @@ ALPHABET = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8,
 class Show(object):
 
     def __init__(self):
-        self.r = random.randrange(100, 255)
-        self.g = random.randrange(100, 255)
-        self.b = random.randrange(100, 255)
+        self.r = random.randrange(50, 255)
+        self.g = random.randrange(50, 255)
+        self.b = random.randrange(50, 255)
 
     def show_digit(self, val: int, xd: int, yd: int) -> None:
         """show_digit
@@ -182,6 +182,7 @@ class Show(object):
         valStr = str(val)
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+            print ("entre")
             self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
