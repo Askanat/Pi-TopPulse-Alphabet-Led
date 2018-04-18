@@ -105,10 +105,10 @@ LETTERS = [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1,  # A
 """
 # FIXME list comprehension to improve it
 # ALPHABET = {
-# 	letter: nb 
-# 	for letter, nb 
+# 	letter: nb
+# 	for letter, nb
 # 	in zip(
-# 		[chr(65+x) for x in range(26)], 
+# 		[chr(65+x) for x in range(26)],
 # 		[x for x in range(26)]
 # 	)
 # }
@@ -237,6 +237,15 @@ if __name__ == '__main__':
             val = val + 1  # FIXME +=1 ?
 
         if 99 < val < 126:
+            # instead of all of this
+            # why not :
+            # 
+            # led.clean_display
+            # led.show_letters_digit(chr(val)) 
+            # time.sleep(S1)
+            # 
+            # ?
+            
             led.clean_display()
             if val == 100:
                 led.show_letters_digits('A')
