@@ -225,121 +225,121 @@ if __name__ == '__main__':
     while True:
         if val <= 99:
             led.show_letters_digits(val)
-            time.sleep(0.1)
+            time.sleep(M1S)
             val = val + 1
 
         if 99 < val < 126:
             led.clean_display()
             if val == 100:
                 led.show_letters_digits('A')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 101:
                 led.show_letters_digits('B')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 102:
                 led.show_letters_digits('C')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 103:
                 led.show_letters_digits('D')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 104:
                 led.show_letters_digits('E')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 105:
                 led.show_letters_digits('F')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 106:
                 led.show_letters_digits('G')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 107:
                 led.show_letters_digits('H')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 108:
                 led.show_letters_digits('I')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 109:
                 led.show_letters_digits('J')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 110:
                 led.show_letters_digits('K')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 111:
                 led.show_letters_digits('L')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 112:
                 led.show_letters_digits('M')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 113:
                 led.show_letters_digits('N')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 114:
                 led.show_letters_digits('O')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 115:
                 led.show_letters_digits('P')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 116:
                 led.show_letters_digits('Q')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 117:
                 led.show_letters_digits('R')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 118:
                 led.show_letters_digits('S')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 119:
                 led.show_letters_digits('T')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 120:
                 led.show_letters_digits('U')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 121:
                 led.show_letters_digits('V')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 122:
                 led.show_letters_digits('W')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 123:
                 led.show_letters_digits('X')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 124:
                 led.show_letters_digits('Y')
-                time.sleep(1)
+                time.sleep(S1)
 
             if val == 125:
                 led.show_letters_digits('Z')
-                time.sleep(1)
+                time.sleep(S1)
 
             val = val + 1       
         if val >= 126:
             led.clean_display()
             val = 0 
             led.show_letters_digits(val)
-            time.sleep(0.1)
+            time.sleep(M1S)
             val = val + 1
 
     led.clean_display()
