@@ -36,13 +36,10 @@ import ptpulse
 from ptpulse import ledmatrix
 
 import random
-from random import randrange  # FIXME unused
-
-import re
-from re import search  # FIXME unused
+from random import randrange
 
 import time
-from time import sleep  # FIXME unused
+from time import sleep
 
 ###############################################################################
 # Constant                                                                    #
@@ -123,9 +120,9 @@ ALPHABET = {
 class Show(object):
 
     def __init__(self):
-        self.r = random.randrange(50, 255)
-        self.g = random.randrange(50, 255)
-        self.b = random.randrange(50, 255)
+        self.r = randrange(50, 255)
+        self.g = randrange(50, 255)
+        self.b = randrange(50, 255)
 
     def show_digit(self, val: int, xd: int, yd: int) -> None:
         """show_digit
@@ -245,4 +242,4 @@ if __name__ == '__main__':
             val_letter = START_LETTER_VALUE
             val = START_DIGIT_VALUE
 
-        time.sleep(S1)
+        sleep(S1)
