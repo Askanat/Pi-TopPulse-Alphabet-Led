@@ -53,11 +53,10 @@ OFFSET_TOP = 1
 
 # Sleep
 S1 = 1  # 1 second
-M1S = 0.1  # Less than 1 second
 
 # Start const
 START_LETTER_VALUE = 65
-START_DIGIT_VALUE  = 0
+START_DIGIT_VALUE = 0
 
 """
     Digits Code Table
@@ -177,23 +176,21 @@ class Show(object):
             )
         ledmatrix.show()
 
-    def show_letters_digits(self, val: int) -> None:
+    def show_letters_digits(self, val: int, int_str: bool) -> None:
         """show_letters_digits
 
             Make the diffrence between int and str and call different function
 
             Attributes:
-               :param <val> : (int) number or letter
+               :param <val>     : (int) number or letter
+               :param <int_str> : (bool) define if it's int or str
         """
 
-        val_Str = str(val)
-
-        if re.search(val_Str, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            self.show_letters(ALPHABET[val], OFFSET_LEFT + 2, OFFSET_TOP)
+        if int_str:
+            self.show_letters(ALPHABET[chr(val)], OFFSET_LEFT + 2, OFFSET_TOP)
 
         else:
-            value = int(val)
-            abs_val = abs(value)
+            abs_val = abs(val)
             tens = abs_val // 10
             units = abs_val % 10
             if abs_val > 9:
@@ -236,11 +233,11 @@ if __name__ == '__main__':
     while True:
         led.clean_display()
         if val <= 99:
-            led.show_letters_digits(val)
+            led.show_letters_digits(val, False)
             val += 1
 
         elif 99 < val < 126:
-            led.show_letters_digits(chr(val_letter))
+            led.show_letters_digits(val_letter, True)
             val_letter += 1
             val += 1
 
