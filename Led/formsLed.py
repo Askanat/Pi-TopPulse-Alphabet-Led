@@ -156,8 +156,6 @@ class Show(object):
                : int <yd>  : height display
         """
 
-        self.clean_display()
-        print(val)
         offset = val * 15
         for p in range(offset, offset + 15):
             xt = p % 3
@@ -183,11 +181,9 @@ class Show(object):
         valStr = str(val)
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            print ("entre")
             self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
-            print ("entre pas au bon endroit")
             value   = int(val)
             abs_val = abs(value)
             tens    = abs_val // 10
