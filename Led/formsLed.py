@@ -233,130 +233,18 @@ if __name__ == '__main__':
     while True:
         if val <= 99:
             led.show_letters_digits(val)
-            time.sleep(M1S)
-            val = val + 1  # FIXME +=1 ?
 
         if 99 < val < 126:
-            # instead of all of this
-            # why not :
-            # 
-            # led.clean_display
-            # led.show_letters_digit(chr(val)) 
-            # time.sleep(S1)
-            # 
-            # ?
-            
             led.clean_display()
-            if val == 100:
-                led.show_letters_digits('A')
-                time.sleep(S1)
-
-            if val == 101:  # FIXME mapping with list comprehension: {[nb] : [letter]}
-                led.show_letters_digits('B')
-                time.sleep(S1)
-
-            if val == 102:
-                led.show_letters_digits('C')
-                time.sleep(S1)
-
-            if val == 103:
-                led.show_letters_digits('D')
-                time.sleep(S1)
-
-            if val == 104:
-                led.show_letters_digits('E')
-                time.sleep(S1)
-
-            if val == 105:
-                led.show_letters_digits('F')
-                time.sleep(S1)
-
-            if val == 106:
-                led.show_letters_digits('G')
-                time.sleep(S1)
-
-            if val == 107:
-                led.show_letters_digits('H')
-                time.sleep(S1)
-
-            if val == 108:
-                led.show_letters_digits('I')
-                time.sleep(S1)
-
-            if val == 109:
-                led.show_letters_digits('J')
-                time.sleep(S1)
-
-            if val == 110:
-                led.show_letters_digits('K')
-                time.sleep(S1)
-
-            if val == 111:
-                led.show_letters_digits('L')
-                time.sleep(S1)
-
-            if val == 112:
-                led.show_letters_digits('M')
-                time.sleep(S1)
-
-            if val == 113:
-                led.show_letters_digits('N')
-                time.sleep(S1)
-
-            if val == 114:
-                led.show_letters_digits('O')
-                time.sleep(S1)
-
-            if val == 115:
-                led.show_letters_digits('P')
-                time.sleep(S1)
-
-            if val == 116:
-                led.show_letters_digits('Q')
-                time.sleep(S1)
-
-            if val == 117:
-                led.show_letters_digits('R')
-                time.sleep(S1)
-
-            if val == 118:
-                led.show_letters_digits('S')
-                time.sleep(S1)
-
-            if val == 119:
-                led.show_letters_digits('T')
-                time.sleep(S1)
-
-            if val == 120:
-                led.show_letters_digits('U')
-                time.sleep(S1)
-
-            if val == 121:
-                led.show_letters_digits('V')
-                time.sleep(S1)
-
-            if val == 122:
-                led.show_letters_digits('W')
-                time.sleep(S1)
-
-            if val == 123:
-                led.show_letters_digits('X')
-                time.sleep(S1)
-
-            if val == 124:
-                led.show_letters_digits('Y')
-                time.sleep(S1)
-
-            if val == 125:
-                led.show_letters_digits('Z')
-                time.sleep(S1)
-
-            val = val + 1
+            led.show_letters_digit(chr(val)) 
+            
         if val >= 126:
             led.clean_display()
             val = 0
             led.show_letters_digits(val)
-            time.sleep(M1S)
-            val = val + 1
+            
+        val = val + 1
+        time.sleep(S1)
 
-    led.clean_display()  # FIXME cette ligne ne sera jamais executée
+
+print(str(ALPHABET))
