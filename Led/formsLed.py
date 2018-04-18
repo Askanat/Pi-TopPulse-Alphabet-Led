@@ -24,7 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
 """
     Display different forms on the pi-topPULSE led matrix
     Based on the script to display digits on pi-topPULSE
@@ -156,9 +155,9 @@ class Show(object):
             Calculate position of leds on and off
 
             Attributes:
-               : int <val> : number display
-               : int <xd>  : width display
-               : int <yd>  : height display
+               :param <val> : (int) number display
+               :param <xd>  : (int) width display
+               :param <yd>  : (int) height display
         """
 
         offset = val * 15
@@ -178,14 +177,14 @@ class Show(object):
         """show_letters_digits
 
             Make the diffrence between int and str and call different function
-
+            
             Attributes:
-               : str or int <val> : number or letter
+               :param <val> : (int or str) number or letter
         """
 
-        valStr = str(val)
+        val_Str = str(val)
 
-        if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+        if re.search(val_Str, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
@@ -206,6 +205,7 @@ class Show(object):
                 OFFSET_TOP
             )
 
+    @staticmethod
     def clean_display(self) -> None:
         """clean_display
 
@@ -221,130 +221,30 @@ class Show(object):
 # MAIN                                                                        #
 ###############################################################################
 if __name__ == '__main__':
-    ledmatrix.rotation(0)
-    ledmatrix.clear()
 
     led = Show()
     val = 0
+    val_letter = 65
+
+    ledmatrix.rotation(0)
+    led.clean_display()
 
     while True:
         if val <= 99:
             led.show_letters_digits(val)
-            time.sleep(M1S)
-            val = val + 1
 
         if 99 < val < 126:
             led.clean_display()
-            if val == 100:
-                led.show_letters_digits('A')
-                time.sleep(S1)
-
-            if val == 101:
-                led.show_letters_digits('B')
-                time.sleep(S1)
-
-            if val == 102:
-                led.show_letters_digits('C')
-                time.sleep(S1)
-
-            if val == 103:
-                led.show_letters_digits('D')
-                time.sleep(S1)
-
-            if val == 104:
-                led.show_letters_digits('E')
-                time.sleep(S1)
-
-            if val == 105:
-                led.show_letters_digits('F')
-                time.sleep(S1)
-
-            if val == 106:
-                led.show_letters_digits('G')
-                time.sleep(S1)
-
-            if val == 107:
-                led.show_letters_digits('H')
-                time.sleep(S1)
-
-            if val == 108:
-                led.show_letters_digits('I')
-                time.sleep(S1)
-
-            if val == 109:
-                led.show_letters_digits('J')
-                time.sleep(S1)
-
-            if val == 110:
-                led.show_letters_digits('K')
-                time.sleep(S1)
-
-            if val == 111:
-                led.show_letters_digits('L')
-                time.sleep(S1)
-
-            if val == 112:
-                led.show_letters_digits('M')
-                time.sleep(S1)
-
-            if val == 113:
-                led.show_letters_digits('N')
-                time.sleep(S1)
-
-            if val == 114:
-                led.show_letters_digits('O')
-                time.sleep(S1)
-
-            if val == 115:
-                led.show_letters_digits('P')
-                time.sleep(S1)
-
-            if val == 116:
-                led.show_letters_digits('Q')
-                time.sleep(S1)
-
-            if val == 117:
-                led.show_letters_digits('R')
-                time.sleep(S1)
-
-            if val == 118:
-                led.show_letters_digits('S')
-                time.sleep(S1)
-
-            if val == 119:
-                led.show_letters_digits('T')
-                time.sleep(S1)
-
-            if val == 120:
-                led.show_letters_digits('U')
-                time.sleep(S1)
-
-            if val == 121:
-                led.show_letters_digits('V')
-                time.sleep(S1)
-
-            if val == 122:
-                led.show_letters_digits('W')
-                time.sleep(S1)
-
-            if val == 123:
-                led.show_letters_digits('X')
-                time.sleep(S1)
-
-            if val == 124:
-                led.show_letters_digits('Y')
-                time.sleep(S1)
-
-            if val == 125:
-                led.show_letters_digits('Z')
-                time.sleep(S1)
-
-            val = val + 1       
+            led.show_letters_digit(chr(val_letter))
+            val_letter += 1 
+            
         if val >= 126:
             led.clean_display()
-            val = 0 
+            val_letter = 65
+            val = 0
             led.show_letters_digits(val)
-            time.sleep(M1S)
-            val = val + 1
+            
+        val = val + 1
+        time.sleep(S1)
 
-    led.clean_display()
+print(str(ALPHABET))
