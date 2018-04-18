@@ -1,13 +1,9 @@
 #! /usr/bin/python3.6
 # -*- coding: utf-8 -*-
 
-# Display different forms on the pi-topPULSE led matrix
-#
-# Based on the script to display digits on pi-topPULSE
-
 """
 MIT License
-Copyright (c) 2018 Florian Vaissiere [https://github.com/FlorianVaissiere]
+Copyright (c) 2018 Florian VAISSIERE [https://github.com/FlorianVaissiere]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+"""
+    Display different forms on the pi-topPULSE led matrix
+    Based on the script to display digits on pi-topPULSE
+"""
+
 ###############################################################################
 # Import                                                                      #
 ###############################################################################
@@ -35,13 +36,13 @@ import ptpulse
 from ptpulse import ledmatrix
 
 import random
-from random import randrange
+from random import randrange  # FIXME unused
 
 import re
-from re import search
+from re import search  # FIXME unused
 
 import time
-from time import sleep
+from time import sleep  # FIXME unused
 
 ###############################################################################
 # Constant                                                                    #
@@ -103,21 +104,24 @@ LETTERS = [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1,  # A
 """
     Dictionary allowing the choice of the line to read
 """
-# FIXME list comprehension to improve it
-# ALPHABET = {
-# 	letter: nb
-# 	for letter, nb
-# 	in zip(
-# 		[chr(65+x) for x in range(26)],
-# 		[x for x in range(26)]
-# 	)
-# }
-ALPHABET = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8,
-            'J': 9, 'K': 10, 'L': 11, 'M': 12, 'N': 13, 'O': 14, 'P': 15, 'Q': 16,
-            'R': 17, 'S': 18, 'T': 19, 'U': 20, 'V': 21, 'W': 22, 'X': 23, 'Y': 24,
-            'Z': 25
-            }
+ALPHABET = {
+    letter: nb
+    for letter, nb
+    in zip(
+    [chr(65 + x) for x in range(26)],  # FIXME pep8 indentation (see bellow)
+    [x for x in range(26)]
+)
+}
 
+# FIXME formatted:
+# ALPHABET = {
+#     letter: nb
+#     for letter, nb
+#     in zip(
+#         [chr(65 + x) for x in range(26)],
+#         [x for x in range(26)]
+#     )
+# }
 
 ###############################################################################
 # Show Class                                                                  #
@@ -135,9 +139,10 @@ class Show(object):
             Calculate position of leds on and off
 
             Attributes:
-               : int <val> : number display
-               : int <xd>  : width display
-               : int <yd>  : height display
+               :param <val> : (int) number display  # FIXME see line 182
+               :param <xd>  : (int) width display
+               :param <yd>  : (int) height display
+
         """
 
         offset = val * 15
@@ -159,9 +164,9 @@ class Show(object):
             Calculate position of leds on and off
 
             Attributes:
-               : int <val> : number display
-               : int <xd>  : width display
-               : int <yd>  : height display
+               :param <val> : (int) number display  # FIXME see line 182
+               :param <xd>  : (int) width display
+               :param <yd>  : (int) height display
         """
 
         offset = val * 15
@@ -177,18 +182,18 @@ class Show(object):
             )
         ledmatrix.show()
 
-    def show_letters_digits(self, val) -> None: # FIXME use typing for parameters
+    def show_letters_digits(self, val) -> None:  # FIXME typing, usage: def show_letters_digits(self, val: int) -> None:
         """show_letters_digits
 
-            Make the diffrence between int and str and call different function  # FIXME spelling mistake
+            Make the diffrence between int and str and call different function
 
             Attributes:
-               : str or int <val> : number or letter
+               :param <val> : (int or str) number or letter # FIXME usage: :param val: (type) description
         """
 
-        valStr = str(val)  # FIXME snake case
+        val_Str = str(val)
 
-        if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+        if re.search(val_Str, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             self.show_letters(ALPHABET[val], OFFSET_LEFT + 2, OFFSET_TOP)
 
         else:
@@ -209,14 +214,15 @@ class Show(object):
                 OFFSET_TOP
             )
 
-    def clean_display(self) -> None:  # FIXME can be static
+    @staticmethod
+    def clean_display(self) -> None:  # FIXME self? in a static context?
         """clean_display
 
             Function of ledmatrix to remove the old display
 
         """
 
-        ledmatrix.clear()  # FIXME function
+        ledmatrix.clear()
         ledmatrix.show()
 
 
@@ -224,27 +230,30 @@ class Show(object):
 # MAIN                                                                        #
 ###############################################################################
 if __name__ == '__main__':
-    ledmatrix.rotation(0)
-    ledmatrix.clear()
 
     led = Show()
     val = 0
+    val_letter = 65  # FIXME constant?
+
+    ledmatrix.rotation(0)
+    led.clean_display()  # FIXME missing parameter 'self' or remove it from 'clean_display'
 
     while True:
         if val <= 99:
             led.show_letters_digits(val)
 
-        if 99 < val < 126:
+        if 99 < val < 126:  # FIXME 'elif' ?
             led.clean_display()
-            led.show_letters_digit(chr(val)) 
-            
-        if val >= 126:
-            led.clean_display()
-            val = 0
-            led.show_letters_digits(val)
-            
-        val = val + 1
-        time.sleep(S1)
+            led.show_letters_digit(chr(val_letter))  # FIXME 'show_letters_digit' does not exsits
+            val_letter += 1
 
+        if val >= 126: # FIXME 'else' ?
+            led.clean_display()
+            val_letter = 65
+            val = 0
+            led.show_letters_digits(val)  # FIXME instruction repeated in the 3 if, refactor?
+
+        val = val + 1  # FIXME += 1 ?
+        time.sleep(S1)
 
 print(str(ALPHABET))
