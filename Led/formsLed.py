@@ -55,7 +55,9 @@ OFFSET_TOP = 1
 S1  = 1     # 1 second
 M1S = 0.1   # Less than 1 second
 
-
+"""
+    Digits Code Table
+"""
 NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
         1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1,  # 2
@@ -65,14 +67,18 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 6
         1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,  # 6
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
-        1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
+        1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1   # 9
+    ]
 
+"""
+    Letters Code Table
+"""
 LETTERS = [ 1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # A
-	    1, 0, 0,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1, # B
+    	    1, 0, 0,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1, # B
             0, 0, 0,   1, 1, 1,   1, 0, 0,   1, 0, 0,   1, 1, 1, # C
             0, 0, 1,   0, 0, 1,   1, 1, 1,   1, 0, 1,   1, 1, 1, # D
             1, 1, 1,   1, 0, 0,   1, 1, 1,   1, 0, 0,   1, 1, 1, # E
-	    1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 0, 0, # F
+    	    1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 0, 0, # F
             0, 1, 0,   1, 0, 1,   0, 1, 1,   1, 0, 1,   0, 1, 0, # G
             1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # H
             1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0,   1, 1, 1, # I
@@ -81,20 +87,23 @@ LETTERS = [ 1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # A
             1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 1, 1, # L
             1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1, # M
             0, 0, 0,   0, 0, 0,   1, 1, 1,   1, 0, 1,   1, 0, 1, # N
-	    1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # O
-	    1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 0,   1, 0, 0, # P
-	    1, 1, 1,   1, 0, 1,   1, 1, 1,   0, 0, 1,   0, 0, 1, # Q
-	    1, 1, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1,   1, 0, 1, # R
-	    0, 1, 1,   1, 0, 0,   0, 1, 0,   0, 0, 1,   1, 1, 0, # S
-	    0, 0, 0,   1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # T
-	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # U
-	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   0, 1, 0, # V
-	    1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1, # W
-	    1, 0, 1,   1, 0, 1,   0, 1, 0,   1, 0, 1,   1, 0, 1, # X
-	    1, 0, 1,   1, 0, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # Y
-	    1, 1, 1,   0, 0, 1,   0, 1, 0,   1, 0, 0,   1, 1, 1  # Z
+    	    1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # O
+    	    1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 0,   1, 0, 0, # P
+    	    1, 1, 1,   1, 0, 1,   1, 1, 1,   0, 0, 1,   0, 0, 1, # Q
+    	    1, 1, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1,   1, 0, 1, # R
+    	    0, 1, 1,   1, 0, 0,   0, 1, 0,   0, 0, 1,   1, 1, 0, # S
+    	    0, 0, 0,   1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # T
+    	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # U
+    	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   0, 1, 0, # V
+    	    1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1, # W
+    	    1, 0, 1,   1, 0, 1,   0, 1, 0,   1, 0, 1,   1, 0, 1, # X
+    	    1, 0, 1,   1, 0, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # Y
+    	    1, 1, 1,   0, 0, 1,   0, 1, 0,   1, 0, 0,   1, 1, 1  # Z
 	    ]
 
+"""
+    Dictionary allowing the choice of the line to read
+"""
 ALPHABET = {'A':0, 'B':1, 'C':2,'D':3,'E':4,'F':5, 'G':6, 'H':7, 'I':8, 'J':9,
             'K':10, 'L':11, 'M':12, 'N':13, 'O':14, 'P':15, 'Q':16, 'R':17,
             'S':18, 'T':19, 'U':20, 'V':21, 'W':22, 'X':23, 'Y':24, 'Z':25 }
@@ -170,7 +179,7 @@ class Show(object):
         valStr = str(val)
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            self.show_letters(14, OFFSET_LEFT+2, OFFSET_TOP)
+            self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
             value   = int(val)
@@ -212,9 +221,7 @@ if __name__ == '__main__':
     val = 0
 
     while True:
-        led.show_letters_digits('A')
-        time.sleep(60)
-        """if val <= 99:
+        if val <= 99:
             led.show_letters_digits(val)
             time.sleep(0.1)
             val = val + 1
@@ -234,15 +241,103 @@ if __name__ == '__main__':
                 time.sleep(1)
 
             if val == 103:
+                led.show_letters_digits('D')
+                time.sleep(1)
+
+            if val == 104:
+                led.show_letters_digits('E')
+                time.sleep(1)
+
+            if val == 105:
+                led.show_letters_digits('F')
+                time.sleep(1)
+
+            if val == 106:
+                led.show_letters_digits('G')
+                time.sleep(1)
+
+            if val == 107:
+                led.show_letters_digits('H')
+                time.sleep(1)
+
+            if val == 108:
+                led.show_letters_digits('I')
+                time.sleep(1)
+
+            if val == 109:
+                led.show_letters_digits('J')
+                time.sleep(1)
+
+            if val == 110:
+                led.show_letters_digits('K')
+                time.sleep(1)
+
+            if val == 111:
                 led.show_letters_digits('L')
                 time.sleep(1)
 
+            if val == 112:
+                led.show_letters_digits('M')
+                time.sleep(1)
+
+            if val == 113:
+                led.show_letters_digits('N')
+                time.sleep(1)
+
+            if val == 114:
+                led.show_letters_digits('O')
+                time.sleep(1)
+
+            if val == 115:
+                led.show_letters_digits('P')
+                time.sleep(1)
+
+            if val == 116:
+                led.show_letters_digits('Q')
+                time.sleep(1)
+
+            if val == 117:
+                led.show_letters_digits('R')
+                time.sleep(1)
+
+            if val == 118:
+                led.show_letters_digits('S')
+                time.sleep(1)
+
+            if val == 119:
+                led.show_letters_digits('T')
+                time.sleep(1)
+
+            if val == 120:
+                led.show_letters_digits('U')
+                time.sleep(1)
+
+            if val == 121:
+                led.show_letters_digits('V')
+                time.sleep(1)
+
+            if val == 122:
+                led.show_letters_digits('W')
+                time.sleep(1)
+
+            if val == 123:
+                led.show_letters_digits('X')
+                time.sleep(1)
+
+            if val == 124:
+                led.show_letters_digits('Y')
+                time.sleep(1)
+
+            if val == 125:
+                led.show_letters_digits('Z')
+                time.sleep(1)
+
             val = val + 1       
-        if val >= 104:
+        if val >= 126:
             led.clean_display()
             val = 0 
             led.show_letters_digits(val)
             time.sleep(0.1)
-            val = val + 1"""
+            val = val + 1
 
     led.clean_display()
