@@ -155,6 +155,7 @@ class Show(object):
                : int <xd>  : width display
                : int <yd>  : height display
         """
+        self.clean_display()
         print(val)
         offset = val * 15
         for p in range(offset, offset + 15):
