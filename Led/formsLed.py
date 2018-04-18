@@ -36,14 +36,13 @@ import ptpulse
 from ptpulse import ledmatrix
 
 import random
-from random import randrange
+from random import randrange  # FIXME unused
 
 import re
-from re import search
+from re import search  # FIXME unused
 
 import time
-from time import sleep
-
+from time import sleep  # FIXME unused
 
 ###############################################################################
 # Constant                                                                    #
@@ -53,61 +52,65 @@ OFFSET_LEFT = 0
 OFFSET_TOP = 1
 
 # Sleep
-S1  = 1     # 1 second
-M1S = 0.1   # Less than 1 second
+S1 = 1  # 1 second
+M1S = 0.1  # Less than 1 second
+
+# Start const
+START_LETTER_VALUE = 65
+START_DIGIT_VALUE  = 0
 
 """
     Digits Code Table
 """
-NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
-        0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
-        1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1,  # 2
-        1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1,  # 3
-        1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1,  # 4
-        1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1,  # 5
-        1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 6
-        1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,  # 6
-        1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
-        1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1   # 9
-    ]
+NUMS = [1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1,  # 0
+        0, 1, 0,   0, 1, 0,   0, 1, 0,   0, 1, 0,   0, 1, 0,  # 1
+        1, 1, 1,   0, 0, 1,   0, 1, 0,   1, 0, 0,   1, 1, 1,  # 2
+        1, 1, 1,   0, 0, 1,   1, 1, 1,   0, 0, 1,   1, 1, 1,  # 3
+        1, 0, 0,   1, 0, 1,   1, 1, 1,   0, 0, 1,   0, 0, 1,  # 4
+        1, 1, 1,   1, 0, 0,   1, 1, 1,   0, 0, 1,   1, 1, 1,  # 5
+        1, 1, 1,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1,  # 6
+        1, 1, 1,   0, 0, 1,   0, 1, 0,   1, 0, 0,   1, 0, 0,  # 6
+        1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 1, 1,  # 8
+        1, 1, 1,   1, 0, 1,   1, 1, 1,   0, 0, 1,   0, 0, 1   # 9
+        ]
 
 """
     Letters Code Table
 """
-LETTERS = [ 1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # A
-    	    1, 0, 0,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1, # B
-            0, 0, 0,   1, 1, 1,   1, 0, 0,   1, 0, 0,   1, 1, 1, # C
-            0, 0, 1,   0, 0, 1,   1, 1, 1,   1, 0, 1,   1, 1, 1, # D
-            1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 1, 1, # E
-    	    1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 0, 0, # F
-            0, 1, 0,   1, 0, 1,   0, 1, 1,   1, 0, 1,   0, 1, 0, # G
-            1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # H
-            1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0,   1, 1, 1, # I
-            0, 0, 1,   0, 0, 0,   0, 0, 1,   0, 0, 1,   0, 1, 1, # J
-            1, 0, 0,   1, 0, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1, # K
-            1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 1, 1, # L
-            1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1, # M
-            0, 0, 0,   0, 0, 0,   1, 1, 1,   1, 0, 1,   1, 0, 1, # N
-    	    1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # O
-    	    1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 0,   1, 0, 0, # P
-    	    1, 1, 1,   1, 0, 1,   1, 1, 1,   0, 0, 1,   0, 0, 1, # Q
-    	    1, 1, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1,   1, 0, 1, # R
-    	    0, 1, 1,   1, 0, 0,   0, 1, 0,   0, 0, 1,   1, 1, 0, # S
-    	    0, 0, 0,   1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # T
-    	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # U
-    	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   0, 1, 0, # V
-    	    1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1, # W
-    	    1, 0, 1,   1, 0, 1,   0, 1, 0,   1, 0, 1,   1, 0, 1, # X
-    	    1, 0, 1,   1, 0, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # Y
-    	    1, 1, 1,   0, 0, 1,   0, 1, 0,   1, 0, 0,   1, 1, 1  # Z
-	    ]
+LETTERS = [1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # A
+    	   1, 0, 0,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1, # B
+           0, 0, 0,   1, 1, 1,   1, 0, 0,   1, 0, 0,   1, 1, 1, # C
+           0, 0, 1,   0, 0, 1,   1, 1, 1,   1, 0, 1,   1, 1, 1, # D
+           1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 1, 1, # E
+    	   1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 0, 0, # F
+           0, 1, 0,   1, 0, 1,   0, 1, 1,   1, 0, 1,   0, 1, 0, # G
+           1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # H
+           1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0,   1, 1, 1, # I
+           0, 0, 1,   0, 0, 0,   0, 0, 1,   0, 0, 1,   0, 1, 1, # J
+           1, 0, 0,   1, 0, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1, # K
+           1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 1, 1, # L
+           1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1, # M
+           0, 0, 0,   0, 0, 0,   1, 1, 1,   1, 0, 1,   1, 0, 1, # N
+    	   1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # O
+    	   1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 0,   1, 0, 0, # P
+    	   1, 1, 1,   1, 0, 1,   1, 1, 1,   0, 0, 1,   0, 0, 1, # Q
+    	   1, 1, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1,   1, 0, 1, # R
+    	   0, 1, 1,   1, 0, 0,   0, 1, 0,   0, 0, 1,   1, 1, 0, # S
+    	   0, 0, 0,   1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # T
+    	   0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # U
+    	   0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   0, 1, 0, # V
+    	   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1, # W
+    	   1, 0, 1,   1, 0, 1,   0, 1, 0,   1, 0, 1,   1, 0, 1, # X
+    	   1, 0, 1,   1, 0, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # Y
+    	   1, 1, 1,   0, 0, 1,   0, 1, 0,   1, 0, 0,   1, 1, 1  # Z
+           ]
 
 """
     Dictionary allowing the choice of the line to read
 """
 ALPHABET = {
-            letter : nb
-            for letter, nb 
+            letter: nb
+            for letter, nb
             in zip(
                 [chr(65+x) for x in range(26)],
                 [x for x in range(26)]
@@ -140,13 +143,13 @@ class Show(object):
         offset = val * 15
         for p in range(offset, offset + 15):
             xt = p % 3
-            yt = (p-offset) // 3
-            ledmatrix.set_pixel( 
-                xt+xd, 
-                6-yt-yd, 
-                self.r*NUMS[p], 
-                self.g*NUMS[p], 
-                self.b*NUMS[p]
+            yt = (p - offset) // 3
+            ledmatrix.set_pixel(
+                xt + xd,
+                6 - yt - yd,
+                self.r * NUMS[p],
+                self.g * NUMS[p],
+                self.b * NUMS[p]
             )
         ledmatrix.show()
 
@@ -164,50 +167,50 @@ class Show(object):
         offset = val * 15
         for p in range(offset, offset + 15):
             xt = p % 3
-            yt = (p-offset) // 3
-            ledmatrix.set_pixel( 
-                xt+xd, 
-                6-yt-yd, 
-                self.r*LETTERS[p], 
-                self.g*LETTERS[p], 
-                self.b*LETTERS[p]
+            yt = (p - offset) // 3
+            ledmatrix.set_pixel(
+                xt + xd,
+                6 - yt - yd,
+                self.r * LETTERS[p],
+                self.g * LETTERS[p],
+                self.b * LETTERS[p]
             )
         ledmatrix.show()
 
-    def show_letters_digits(self, val) -> None:
+    def show_letters_digits(self, val: int) -> None:
         """show_letters_digits
 
             Make the diffrence between int and str and call different function
-            
+
             Attributes:
-               :param <val> : (int or str) number or letter
+               :param <val> : (int) number or letter
         """
 
         val_Str = str(val)
 
         if re.search(val_Str, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
+            self.show_letters(ALPHABET[val], OFFSET_LEFT + 2, OFFSET_TOP)
 
-        else :
-            value   = int(val)
+        else:
+            value = int(val)
             abs_val = abs(value)
-            tens    = abs_val // 10
-            units   = abs_val % 10
-            if (abs_val > 9):
+            tens = abs_val // 10
+            units = abs_val % 10
+            if abs_val > 9:
                 self.show_digit(
-                    tens, 
-                    OFFSET_LEFT, 
+                    tens,
+                    OFFSET_LEFT,
                     OFFSET_TOP
                 )
 
             self.show_digit(
-                units, 
-                OFFSET_LEFT+4, 
+                units,
+                OFFSET_LEFT + 4,
                 OFFSET_TOP
             )
 
     @staticmethod
-    def clean_display(self) -> None:
+    def clean_display() -> None:
         """clean_display
 
             Function of ledmatrix to remove the old display
@@ -224,28 +227,25 @@ class Show(object):
 if __name__ == '__main__':
 
     led = Show()
-    val = 0
-    val_letter = 65
+    val = START_DIGIT_VALUE
+    val_letter = START_LETTER_VALUE
 
     ledmatrix.rotation(0)
     led.clean_display()
 
     while True:
+        led.clean_display()
         if val <= 99:
             led.show_letters_digits(val)
+            val += 1
 
-        if 99 < val < 126:
-            led.clean_display()
-            led.show_letters_digit(chr(val_letter))
-            val_letter += 1 
-            
-        if val >= 126:
-            led.clean_display()
-            val_letter = 65
-            val = 0
-            led.show_letters_digits(val)
-            
-        val = val + 1
+        elif 99 < val < 126:
+            led.show_letters_digits(chr(val_letter))
+            val_letter += 1
+            val += 1
+
+        else:
+            val_letter = START_LETTER_VALUE
+            val = START_DIGIT_VALUE
+
         time.sleep(S1)
-
-print(str(ALPHABET))
