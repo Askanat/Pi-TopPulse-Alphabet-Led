@@ -43,7 +43,6 @@ from re import search
 import time
 from time import sleep
 
-
 ###############################################################################
 # Constant                                                                    #
 ###############################################################################
@@ -52,8 +51,8 @@ OFFSET_LEFT = 0
 OFFSET_TOP = 1
 
 # Sleep
-S1  = 1     # 1 second
-M1S = 0.1   # Less than 1 second
+S1 = 1  # 1 second
+M1S = 0.1  # Less than 1 second
 
 """
     Digits Code Table
@@ -67,48 +66,57 @@ NUMS = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
         1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 6
         1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,  # 6
         1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
-        1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1   # 9
-    ]
+        1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1  # 9
+        ]
 
 """
     Letters Code Table
 """
-LETTERS = [ 1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # A
-    	    1, 0, 0,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1, # B
-            0, 0, 0,   1, 1, 1,   1, 0, 0,   1, 0, 0,   1, 1, 1, # C
-            0, 0, 1,   0, 0, 1,   1, 1, 1,   1, 0, 1,   1, 1, 1, # D
-            1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 1, 1, # E
-    	    1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 0, 0, # F
-            0, 1, 0,   1, 0, 1,   0, 1, 1,   1, 0, 1,   0, 1, 0, # G
-            1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # H
-            1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0,   1, 1, 1, # I
-            0, 0, 1,   0, 0, 0,   0, 0, 1,   0, 0, 1,   0, 1, 1, # J
-            1, 0, 0,   1, 0, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1, # K
-            1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 1, 1, # L
-            1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1, # M
-            0, 0, 0,   0, 0, 0,   1, 1, 1,   1, 0, 1,   1, 0, 1, # N
-    	    1, 1, 1,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # O
-    	    1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 0,   1, 0, 0, # P
-    	    1, 1, 1,   1, 0, 1,   1, 1, 1,   0, 0, 1,   0, 0, 1, # Q
-    	    1, 1, 0,   1, 0, 1,   1, 1, 0,   1, 0, 1,   1, 0, 1, # R
-    	    0, 1, 1,   1, 0, 0,   0, 1, 0,   0, 0, 1,   1, 1, 0, # S
-    	    0, 0, 0,   1, 1, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # T
-    	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1, # U
-    	    0, 0, 0,   1, 0, 1,   1, 0, 1,   1, 0, 1,   0, 1, 0, # V
-    	    1, 0, 1,   1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1, # W
-    	    1, 0, 1,   1, 0, 1,   0, 1, 0,   1, 0, 1,   1, 0, 1, # X
-    	    1, 0, 1,   1, 0, 1,   0, 1, 0,   0, 1, 0,   0, 1, 0, # Y
-    	    1, 1, 1,   0, 0, 1,   0, 1, 0,   1, 0, 0,   1, 1, 1  # Z
-	    ]
+LETTERS = [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1,  # A
+           1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # B
+           0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1,  # C
+           0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # D
+           1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1,  # E
+           1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0,  # F
+           0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0,  # G
+           1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1,  # H
+           1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1,  # I
+           0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1,  # J
+           1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1,  # K
+           1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1,  # L
+           1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1,  # M
+           0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1,  # N
+           1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # O
+           1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0,  # P
+           1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1,  # Q
+           1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1,  # R
+           0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0,  # S
+           0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # T
+           0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # U
+           0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0,  # V
+           1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1,  # W
+           1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1,  # X
+           1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # Y
+           1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1  # Z
+           ]
 
 """
     Dictionary allowing the choice of the line to read
 """
-ALPHABET = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 
-            'J':9, 'K':10, 'L':11, 'M':12, 'N':13, 'O':14, 'P':15, 'Q':16, 
-            'R':17, 'S':18, 'T':19, 'U':20, 'V':21, 'W':22, 'X':23, 'Y':24, 
-            'Z':25 
-        }
+# FIXME list comprehension to improve it
+# ALPHABET = {
+# 	letter: nb 
+# 	for letter, nb 
+# 	in zip(
+# 		[chr(65+x) for x in range(26)], 
+# 		[x for x in range(26)]
+# 	)
+# }
+ALPHABET = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8,
+            'J': 9, 'K': 10, 'L': 11, 'M': 12, 'N': 13, 'O': 14, 'P': 15, 'Q': 16,
+            'R': 17, 'S': 18, 'T': 19, 'U': 20, 'V': 21, 'W': 22, 'X': 23, 'Y': 24,
+            'Z': 25
+            }
 
 
 ###############################################################################
@@ -135,13 +143,13 @@ class Show(object):
         offset = val * 15
         for p in range(offset, offset + 15):
             xt = p % 3
-            yt = (p-offset) // 3
-            ledmatrix.set_pixel( 
-                xt+xd, 
-                6-yt-yd, 
-                self.r*NUMS[p], 
-                self.g*NUMS[p], 
-                self.b*NUMS[p]
+            yt = (p - offset) // 3
+            ledmatrix.set_pixel(
+                xt + xd,
+                6 - yt - yd,
+                self.r * NUMS[p],
+                self.g * NUMS[p],
+                self.b * NUMS[p]
             )
         ledmatrix.show()
 
@@ -159,56 +167,56 @@ class Show(object):
         offset = val * 15
         for p in range(offset, offset + 15):
             xt = p % 3
-            yt = (p-offset) // 3
-            ledmatrix.set_pixel( 
-                xt+xd, 
-                6-yt-yd, 
-                self.r*LETTERS[p], 
-                self.g*LETTERS[p], 
-                self.b*LETTERS[p]
+            yt = (p - offset) // 3
+            ledmatrix.set_pixel(
+                xt + xd,
+                6 - yt - yd,
+                self.r * LETTERS[p],
+                self.g * LETTERS[p],
+                self.b * LETTERS[p]
             )
         ledmatrix.show()
 
-    def show_letters_digits(self, val) -> None:
+    def show_letters_digits(self, val) -> None: # FIXME use typing for parameters
         """show_letters_digits
 
-            Make the diffrence between int and str and call different function
+            Make the diffrence between int and str and call different function  # FIXME spelling mistake
 
             Attributes:
                : str or int <val> : number or letter
         """
 
-        valStr = str(val)
+        valStr = str(val)  # FIXME snake case
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-            self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
+            self.show_letters(ALPHABET[val], OFFSET_LEFT + 2, OFFSET_TOP)
 
-        else :
-            value   = int(val)
+        else:
+            value = int(val)
             abs_val = abs(value)
-            tens    = abs_val // 10
-            units   = abs_val % 10
-            if (abs_val > 9):
+            tens = abs_val // 10
+            units = abs_val % 10
+            if (abs_val > 9):  # FIXME parenthesis
                 self.show_digit(
-                    tens, 
-                    OFFSET_LEFT, 
+                    tens,
+                    OFFSET_LEFT,
                     OFFSET_TOP
                 )
 
             self.show_digit(
-                units, 
-                OFFSET_LEFT+4, 
+                units,
+                OFFSET_LEFT + 4,
                 OFFSET_TOP
             )
 
-    def clean_display(self) -> None:
+    def clean_display(self) -> None:  # FIXME can be static
         """clean_display
 
             Function of ledmatrix to remove the old display
 
         """
 
-        ledmatrix.clear()
+        ledmatrix.clear()  # FIXME function
         ledmatrix.show()
 
 
@@ -226,7 +234,7 @@ if __name__ == '__main__':
         if val <= 99:
             led.show_letters_digits(val)
             time.sleep(M1S)
-            val = val + 1
+            val = val + 1  # FIXME +=1 ?
 
         if 99 < val < 126:
             led.clean_display()
@@ -234,7 +242,7 @@ if __name__ == '__main__':
                 led.show_letters_digits('A')
                 time.sleep(S1)
 
-            if val == 101:
+            if val == 101:  # FIXME mapping with list comprehension: {[nb] : [letter]}
                 led.show_letters_digits('B')
                 time.sleep(S1)
 
@@ -334,12 +342,12 @@ if __name__ == '__main__':
                 led.show_letters_digits('Z')
                 time.sleep(S1)
 
-            val = val + 1       
+            val = val + 1
         if val >= 126:
             led.clean_display()
-            val = 0 
+            val = 0
             led.show_letters_digits(val)
             time.sleep(M1S)
             val = val + 1
 
-    led.clean_display()
+    led.clean_display()  # FIXME cette ligne ne sera jamais executée
