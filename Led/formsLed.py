@@ -186,6 +186,7 @@ class Show(object):
             self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
+            print ("entre pas au bon endroit")
             value   = int(val)
             abs_val = abs(value)
             tens    = abs_val // 10
