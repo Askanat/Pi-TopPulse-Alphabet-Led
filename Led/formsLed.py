@@ -228,7 +228,7 @@ if __name__ == '__main__':
             time.sleep(0.1)
             val = val + 1
 
-        if val > 99 and val < 126:
+        if 99 < val < 126:
             led.clean_display()
             if val == 100:
                 led.show_letters_digits('A')
