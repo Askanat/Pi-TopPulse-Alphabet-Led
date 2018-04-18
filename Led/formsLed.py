@@ -77,7 +77,7 @@ LETTERS = [ 1, 1, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # A
     	    1, 0, 0,   1, 0, 0,   1, 1, 1,   1, 0, 1,   1, 1, 1, # B
             0, 0, 0,   1, 1, 1,   1, 0, 0,   1, 0, 0,   1, 1, 1, # C
             0, 0, 1,   0, 0, 1,   1, 1, 1,   1, 0, 1,   1, 1, 1, # D
-            1, 1, 1,   1, 0, 0,   1, 1, 1,   1, 0, 0,   1, 1, 1, # E
+            1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 1, 1, # E
     	    1, 1, 1,   1, 0, 0,   1, 1, 0,   1, 0, 0,   1, 0, 0, # F
             0, 1, 0,   1, 0, 1,   0, 1, 1,   1, 0, 1,   0, 1, 0, # G
             1, 0, 1,   1, 0, 1,   1, 1, 1,   1, 0, 1,   1, 0, 1, # H
@@ -117,9 +117,9 @@ ALPHABET = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8,
 class Show(object):
 
     def __init__(self):
-        self.r = random.randrange(255)
-        self.g = random.randrange(255)
-        self.b = random.randrange(255)
+        self.r = random.randrange(100, 255)
+        self.g = random.randrange(100, 255)
+        self.b = random.randrange(100, 255)
 
     def show_digit(self, val: int, xd: int, yd: int) -> None:
         """show_digit
