@@ -155,6 +155,7 @@ class Show(object):
                : int <xd>  : width display
                : int <yd>  : height display
         """
+
         self.clean_display()
         print(val)
         offset = val * 15
@@ -183,7 +184,7 @@ class Show(object):
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             print ("entre")
-            self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
+            self.show_letters(4, OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
             print ("entre pas au bon endroit")
