@@ -184,7 +184,7 @@ class Show(object):
 
         if re.search(valStr, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             print ("entre")
-            self.show_letters(4, OFFSET_LEFT+2, OFFSET_TOP)
+            self.show_letters(ALPHABET[val], OFFSET_LEFT+2, OFFSET_TOP)
 
         else :
             print ("entre pas au bon endroit")
@@ -232,7 +232,7 @@ if __name__ == '__main__':
             time.sleep(0.1)
             val = val + 1
 
-        if val > 99 and val < 104:
+        if val > 99 and val < 126:
             led.clean_display()
             if val == 100:
                 led.show_letters_digits('A')
