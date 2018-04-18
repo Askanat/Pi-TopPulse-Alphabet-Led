@@ -3,7 +3,7 @@
 
 """
 MIT License
-Copyright (c) 2018 Florian Vaissiere [https://github.com/FlorianVaissiere]
+Copyright (c) 2018 Florian VAISSIERE [https://github.com/FlorianVaissiere]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -131,9 +131,10 @@ class Show(object):
             Calculate position of leds on and off
 
             Attributes:
-               : int <val> : number display
-               : int <xd>  : width display
-               : int <yd>  : height display
+               :param <val> : (int) number display
+               :param <xd>  : (int) width display
+               :param <yd>  : (int) height display
+
         """
 
         offset = val * 15
